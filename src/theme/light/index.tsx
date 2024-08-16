@@ -10,6 +10,7 @@ import MuiFormLabel from '@/theme/light/MuiFormLabel'
 import MuiOutlinedInput from '@/theme/light/MuiOutlinedInput'
 import MuiRadio from '@/theme/light/MuiRadio'
 import MuiSelect from '@/theme/light/MuiSelect'
+import MuiStepper from '@/theme/light/MuiStepper'
 import MuiTextField from '@/theme/light/MuiTextField'
 import MuiTypography from '@/theme/light/MuiTypography'
 import themePalette from '@/theme/light/themePalette'
@@ -23,17 +24,28 @@ const theme = createTheme(themePalette, {
   components: {
     MuiBreadcrumbs,
     MuiButton,
-    MuiChip,
-    MuiTextField,
-    MuiFormLabel,
-    MuiRadio,
-    MuiTypography,
-    MuiSelect,
     MuiCard,
     MuiCardContent,
     MuiCardHeader,
+    MuiChip,
+    MuiFormLabel,
     MuiOutlinedInput,
+    MuiRadio,
+    MuiSelect,
+    MuiStepper,
+    MuiTextField,
+    MuiTypography,
   },
 })
+
+theme.typography.h1 = {
+  fontSize: '1.5rem',
+  lineHeight: '2rem',
+
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2.25rem',
+    lineHeight: '3rem',
+  },
+}
 
 export default theme

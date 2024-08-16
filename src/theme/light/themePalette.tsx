@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material'
 
-import { error, grey, primary, secondary, warning } from '../colors'
+import { error, grey, primary, secondary, warning } from '../palette'
 
 const themePalette = createTheme({
   palette: {

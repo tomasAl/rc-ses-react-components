@@ -1,6 +1,6 @@
 import { Components } from '@mui/material'
 
-import Colors from '@/theme/colors'
+import Colors from '@/theme/palette'
 
 const MuiCardHeader: Components['MuiCardHeader'] = {
   defaultProps: {},

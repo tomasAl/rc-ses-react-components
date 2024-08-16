@@ -22,7 +22,6 @@ const MuiTypography: Components['MuiTypography'] = {
   styleOverrides: {
     root: {},
     h1: {
-      fontSize: '2.25rem',
       fontWeight: '500',
     },
     h2: {

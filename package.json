@@ -1,6 +1,7 @@
 {
-  "name": "rc-ses-react-components",
-  "version": "0.0.1a",
+  "name": "@rc-ses/react-components",
+  "author": "Codeopera, UAB",
+  "version": "0.0.1",
   "description": "RC SES React komponentų biblioteka",
   "type": "module",
   "private": true,
@@ -17,9 +18,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.cgi-berlin.cloud/ti-gateway/frontend/frontend"
+    "url": "https://github.com/tomasAl/rc-ses-react-components"
   },
-  "author": "Codeopera, UAB",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
