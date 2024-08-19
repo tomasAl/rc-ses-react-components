@@ -1,33 +1,41 @@
 import {
-  FormControl,
-  FormHelperText,
-  FormLabel,
   OutlinedTextFieldProps as MuiOutlinedTextFieldProps,
-  TextField as MuiTextField,
+  TextField,
 } from '@mui/material'
+import { forwardRef } from 'react'
+import { FieldError } from 'react-hook-form'
 
-interface TextFieldProps extends MuiOutlinedTextFieldProps {
-  label?: string
+import RcSesFormControlWrapper from '../FormControlWrapper'
+
+interface Props extends Omit<MuiOutlinedTextFieldProps, 'variant'> {
   description?: string
-  variant: 'outlined'
+  errors?: FieldError | undefined
+  label?: string
+  labelSubtitle?: string
 }
 
-function TextField(props: TextFieldProps) {
-  const { label, description, variant, ...inputProps } = props
+const RcSesTextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
+  const { description, label, labelSubtitle, ...inputProps } = props
+  const id = props.id ?? crypto.randomUUID()
 
   return (
-    <FormControl sx={{ width: '100%' }}>
-      <FormLabel>{label}</FormLabel>
-      <MuiTextField variant={variant} placeholder='Tekstas' {...inputProps} />
-      {description && (
-        <FormHelperText sx={{ mx: 0, mt: '0.2rem' }}>{description}</FormHelperText>
-      )}
-    </FormControl>
+    <RcSesFormControlWrapper
+      description={description}
+      errors={props.errors}
+      id={id}
+      label={label}
+      labelSubtitle={labelSubtitle}
+    >
+      <TextField {...inputProps} inputRef={ref} id={id} fullWidth />
+    </RcSesFormControlWrapper>
   )
-}
-TextField.defaultProps = {
-  label: undefined,
+})
+
+RcSesTextField.defaultProps = {
   description: undefined,
+  errors: undefined,
+  label: undefined,
+  labelSubtitle: undefined,
 }
 
-export default TextField
+export default RcSesTextField
