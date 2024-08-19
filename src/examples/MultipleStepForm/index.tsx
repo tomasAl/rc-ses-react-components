@@ -1,12 +1,41 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
+import { AccordionDetails, Typography } from '@mui/material'
 
+import RcSesAccordion from '@/components/common/Accordion'
+import useAccordionController from '@/components/common/Accordion/hooks/useAccordionController'
 import ServiceFormActions from '@/components/layout/ServiceFormActions'
 import ServiceFormContainer from '@/components/layout/ServiceFormContainer'
 import ServiceHeader from '@/components/layout/ServiceHeader'
 import ServicePage from '@/components/layout/ServicePage'
 
 function MultipleStepForm() {
+  const accordionController = useAccordionController({
+    basicInformation: {
+      expanded: false,
+      state: 'completed',
+      title: 'Bazinė informacija',
+    },
+    serviceDetails: {
+      expanded: false,
+      state: 'active',
+      title: 'Paslaugos užsakymas',
+    },
+    serviceIssuance: {
+      expanded: false,
+      state: 'pending',
+      title: 'Išdavimas',
+    },
+    additionalServices: {
+      expanded: false,
+      state: 'pending',
+      title: 'Reikalingos papildomos paslaugos',
+    },
+    termsAndConditions: {
+      expanded: false,
+      state: 'pending',
+      title: 'Terminai ir sąlygos',
+    },
+  })
+
   return (
     <ServicePage>
       <ServiceHeader
@@ -25,47 +54,41 @@ function MultipleStepForm() {
         </Typography>
       </ServiceHeader>
 
-      <ServiceFormContainer>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls='panel1-content'
-            id='panel1-header'
-          >
-            Accordion 1
-          </AccordionSummary>
+      <ServiceFormContainer accordionController={accordionController}>
+        <RcSesAccordion id='basicInformation' controller={accordionController}>
           <AccordionDetails>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
             lacus ex, sit amet blandit leo lobortis eget.
           </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls='panel2-content'
-            id='panel2-header'
-          >
-            Accordion 2
-          </AccordionSummary>
-          <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion defaultExpanded>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls='panel3-content'
-            id='panel3-header'
-          >
-            Accordion Actions
-          </AccordionSummary>
-          <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
-          </AccordionDetails>
-        </Accordion>
+        </RcSesAccordion>
 
+        <RcSesAccordion id='serviceDetails' controller={accordionController}>
+          <AccordionDetails>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+            lacus ex, sit amet blandit leo lobortis eget.
+          </AccordionDetails>
+        </RcSesAccordion>
+
+        <RcSesAccordion id='serviceIssuance' controller={accordionController}>
+          <AccordionDetails>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+            lacus ex, sit amet blandit leo lobortis eget.
+          </AccordionDetails>
+        </RcSesAccordion>
+
+        <RcSesAccordion id='additionalServices' controller={accordionController}>
+          <AccordionDetails>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+            lacus ex, sit amet blandit leo lobortis eget.
+          </AccordionDetails>
+        </RcSesAccordion>
+
+        <RcSesAccordion id='termsAndConditions' controller={accordionController}>
+          <AccordionDetails>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+            lacus ex, sit amet blandit leo lobortis eget.
+          </AccordionDetails>
+        </RcSesAccordion>
         <ServiceFormActions />
       </ServiceFormContainer>
     </ServicePage>
