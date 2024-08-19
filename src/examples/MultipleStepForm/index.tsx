@@ -7,6 +7,12 @@ import ServiceFormContainer from '@/components/layout/ServiceFormContainer'
 import ServiceHeader from '@/components/layout/ServiceHeader'
 import ServicePage from '@/components/layout/ServicePage'
 
+import AdditionalServicesForm from './components/AdditionalServicesForm'
+import BasicInformationForm from './components/BasicInformationForm'
+import ServiceDetailsForm from './components/ServiceDetailsForm'
+import ServiceIssuanceForm from './components/ServiceIssuanceForm'
+import TermsAndConditionsForm from './components/TermsAndConditionsForm'
+
 function MultipleStepForm() {
   const accordionController = useAccordionController({
     basicInformation: {
@@ -57,36 +63,31 @@ function MultipleStepForm() {
       <ServiceFormContainer accordionController={accordionController}>
         <RcSesAccordion id='basicInformation' controller={accordionController}>
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+            <BasicInformationForm />
           </AccordionDetails>
         </RcSesAccordion>
 
         <RcSesAccordion id='serviceDetails' controller={accordionController}>
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+            <ServiceDetailsForm />
           </AccordionDetails>
         </RcSesAccordion>
 
         <RcSesAccordion id='serviceIssuance' controller={accordionController}>
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+            <ServiceIssuanceForm />
           </AccordionDetails>
         </RcSesAccordion>
 
         <RcSesAccordion id='additionalServices' controller={accordionController}>
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+            <AdditionalServicesForm />
           </AccordionDetails>
         </RcSesAccordion>
 
         <RcSesAccordion id='termsAndConditions' controller={accordionController}>
           <AccordionDetails>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
+            <TermsAndConditionsForm />
           </AccordionDetails>
         </RcSesAccordion>
         <ServiceFormActions />
