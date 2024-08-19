@@ -1,4 +1,5 @@
-import { Accordion, AccordionSummary } from '@mui/material'
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
 import { SyntheticEvent } from 'react'
 
 import useAccordionController from './hooks/useAccordionController'
