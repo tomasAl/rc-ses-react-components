@@ -21,7 +21,7 @@ function MultipleStepForm() {
       title: 'Bazinė informacija',
     },
     serviceDetails: {
-      expanded: false,
+      expanded: true,
       state: 'active',
       title: 'Paslaugos užsakymas',
     },

@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 
-import RcSesCheckbox from '@/components/form/input/Checkbox'
+import RcSesCheckboxInput from '@/components/form/input/CheckboxInput'
 
 type FormModel = {
   agreement: boolean
@@ -20,8 +20,9 @@ function TermsAndConditionsForm() {
   })
 
   return (
+    // eslint-disable-next-line no-console
     <form onSubmit={handleSubmit(console.debug)} noValidate>
-      <RcSesCheckbox
+      <RcSesCheckboxInput
         errors={errors?.agreement}
         {...register('agreement', { required: true })}
       >
@@ -34,7 +35,7 @@ function TermsAndConditionsForm() {
           terminą neapmokėjus apskaičiuoto mokesčio, darbų užsakymas per pasiriktą terminą
           nebus įvykdytas.
         </Typography>
-      </RcSesCheckbox>
+      </RcSesCheckboxInput>
     </form>
   )
 }

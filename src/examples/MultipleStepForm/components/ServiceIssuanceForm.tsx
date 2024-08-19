@@ -23,6 +23,7 @@ function ServiceIssuanceForm() {
   })
 
   return (
+    // eslint-disable-next-line no-console
     <form onSubmit={handleSubmit(console.debug)} noValidate>
       <RcSesAlert severity='warning'>
         Primename, kad atsiimant rezultatus pdalinyje su savimi privalote turėti asmens
