@@ -3,20 +3,20 @@ import StepLabel from '@mui/material/StepLabel'
 import Stepper from '@mui/material/Stepper'
 import { useCallback } from 'react'
 
+import {
+  AccordionControllerState,
+  AccordionState,
+} from '@/components/common/Accordion/types/AccordionControllerState'
+
 import ActiveStepIcon from './components/ActiveStepIcon'
 import CompletedStepIcon from './components/CompletedStepIcon'
 import PendingStepIcon from './components/PendingStepIcon'
 
-type ServiceWizardStep = {
-  label: string
-  state: 'active' | 'completed' | 'pending'
-}
-
 type Props = {
-  steps: ServiceWizardStep[]
+  steps: AccordionControllerState
 }
 function ServiceWizardStepper({ steps }: Props) {
-  const getStepIcon = useCallback((state: ServiceWizardStep['state']) => {
+  const getStepIcon = useCallback((state: AccordionState['state']) => {
     switch (state) {
       case 'active':
         return ActiveStepIcon
@@ -27,14 +27,14 @@ function ServiceWizardStepper({ steps }: Props) {
     }
   }, [])
 
+  const activeStep =
+    Object.values(steps).findIndex((step) => step.state === 'active') ?? 0
+
   return (
-    <Stepper
-      activeStep={steps.findIndex((step) => step.state === 'active') ?? 0}
-      orientation='vertical'
-    >
-      {steps.map((step) => (
-        <Step key={step.label}>
-          <StepLabel StepIconComponent={getStepIcon(step.state)}>{step.label}</StepLabel>
+    <Stepper activeStep={activeStep} orientation='vertical' sx={{ mt: 6.5 }}>
+      {Object.values(steps).map((step) => (
+        <Step key={step.title}>
+          <StepLabel StepIconComponent={getStepIcon(step.state)}>{step.title}</StepLabel>
         </Step>
       ))}
     </Stepper>
