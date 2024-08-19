@@ -1,11 +1,28 @@
 import { Components } from '@mui/material'
 
+import palette from '../palette'
+
 const MuiFormLabel: Components['MuiFormLabel'] = {
   styleOverrides: {
     root: {
-      fontSize: '0.8125rem',
-      color: 'black',
-      paddingBottom: '0.2rem',
+      color: palette.grey['900'],
+      fontSize: '.9375rem',
+      fontWeight: 500,
+      lineHeight: '1.125rem',
+
+      '&.Mui-focused': {
+        color: 'inherit',
+      },
+
+      '.rc-ses-label-subtitle': {
+        color: palette.grey['700'],
+        display: 'block',
+        fontSize: '.75rem',
+        fontStyle: 'italic',
+        fontWeight: 500,
+        lineHeight: '1rem',
+        marginTop: '.125rem',
+      },
     },
   },
 }

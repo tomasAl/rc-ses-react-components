@@ -1,0 +1,55 @@
+import { Components, decomposeColor } from '@mui/material'
+
+import palette from '../palette'
+
+const MuiInputBase: Components['MuiInputBase'] = {
+  defaultProps: {},
+  styleOverrides: {
+    root: {
+      borderRadius: '.1875rem',
+
+      '.MuiInputBase-input': {
+        color: palette.grey['900'],
+        fontSize: '.9375rem',
+        height: '1.125rem',
+        lineHeight: '1.125rem',
+        padding: '.8125rem .875rem',
+
+        '&::placeholder': {
+          color: palette.grey['600'],
+        },
+      },
+
+      '.MuiOutlinedInput-notchedOutline': {
+        borderColor: palette.grey['600'],
+      },
+
+      '&.Mui-focused': {
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: `${palette.grey['900']} !important`,
+          boxShadow: `0px 0px 0px 3px rgba(${decomposeColor(palette.grey['900']).values}, .2)`,
+        },
+      },
+
+      '&.Mui-disabled': {
+        backgroundColor: palette.grey['100'],
+
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: palette.grey['600'],
+        },
+
+        '.MuiInputBase-input': {
+          color: palette.grey['600'],
+        },
+      },
+
+      '&:hover:not(.Mui-disabled)': {
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: palette.grey['900'],
+        },
+      },
+    },
+  },
+}
+
+export default MuiInputBase

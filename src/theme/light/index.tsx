@@ -3,14 +3,18 @@ import { createTheme } from '@mui/material'
 import MuiAccordion from '@/theme/light/MuiAccordion'
 import MuiAccordionSummary from '@/theme/light/MuiAccordionSummary'
 import MuiAlert from '@/theme/light/MuiAlert'
+import MuiAutocomplete from '@/theme/light/MuiAutocomplete'
 import MuiBreadcrumbs from '@/theme/light/MuiBreadcrumbs'
 import MuiButton from '@/theme/light/MuiButton'
 import MuiCard from '@/theme/light/MuiCard'
 import MuiCardContent from '@/theme/light/MuiCardContent'
 import MuiCardHeader from '@/theme/light/MuiCardHeader'
+import MuiCheckbox from '@/theme/light/MuiCheckbox'
 import MuiChip from '@/theme/light/MuiChip'
+import MuiFormControl from '@/theme/light/MuiFormControl'
+import MuiFormGroup from '@/theme/light/MuiFormGroup'
 import MuiFormLabel from '@/theme/light/MuiFormLabel'
-import MuiOutlinedInput from '@/theme/light/MuiOutlinedInput'
+import MuiInputBase from '@/theme/light/MuiInputBase'
 import MuiRadio from '@/theme/light/MuiRadio'
 import MuiSelect from '@/theme/light/MuiSelect'
 import MuiStepper from '@/theme/light/MuiStepper'
@@ -28,14 +32,18 @@ const theme = createTheme(themePalette, {
     MuiAccordion,
     MuiAccordionSummary,
     MuiAlert,
+    MuiAutocomplete,
     MuiBreadcrumbs,
     MuiButton,
     MuiCard,
     MuiCardContent,
     MuiCardHeader,
+    MuiCheckbox,
     MuiChip,
+    MuiFormControl,
+    MuiFormGroup,
     MuiFormLabel,
-    MuiOutlinedInput,
+    MuiInputBase,
     MuiRadio,
     MuiSelect,
     MuiStepper,

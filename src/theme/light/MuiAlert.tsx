@@ -24,6 +24,7 @@ const MuiAlert: Components['MuiAlert'] = {
   },
   styleOverrides: {
     root: {
+      marginBottom: '1.5rem',
       paddingTop: '.75rem',
       paddingBottom: '.75rem',
     },
