@@ -1,28 +1,41 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material'
-import {
-  IconButton,
-  InputAdornment,
-  TextField,
-  TextFieldProps,
-  styled,
-} from '@mui/material'
+import { Button, OutlinedInput, OutlinedInputProps, styled } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { FieldError, UseControllerProps, useController } from 'react-hook-form'
 
+import MinusBoldIcon from '@/assets/icons/MinusBoldIcon'
+import PlusBoldIcon from '@/assets/icons/PlusBoldIcon'
+import palette from '@/theme/palette'
+
 import RcSesFormControlWrapper from '../FormControlWrapper'
 
-const NumberInput = styled(TextField)({
-  '& input[type=number]': {
+const NumberInput = styled(OutlinedInput)({
+  paddingRight: 0,
+
+  'input[type=number]': {
     MozAppearance: 'textfield',
   },
-  '& input[type=number]::-webkit-outer-spin-button': {
+  'input[type=number]::-webkit-outer-spin-button': {
     WebkitAppearance: 'none',
     margin: 0,
   },
-  '& input[type=number]::-webkit-inner-spin-button': {
+  'input[type=number]::-webkit-inner-spin-button': {
     WebkitAppearance: 'none',
     margin: 0,
+  },
+
+  '.MuiButtonBase-root': {
+    backgroundColor: palette.grey['100'],
+    borderRightStyle: 'none !important',
+
+    '&:last-of-type': {
+      borderTopRightRadius: '.25rem',
+      borderBottomRightRadius: '.25rem',
+    },
+
+    '&:hover:not(:disabled)': {
+      backgroundColor: palette.grey['200'],
+    },
   },
 })
 
@@ -34,24 +47,23 @@ type ArrowButtonProps = {
 
 function ArrowButton({ onClick, disabled, direction }: ArrowButtonProps) {
   return (
-    <IconButton
+    <Button
       onClick={onClick}
       disabled={disabled}
+      variant='outlined'
       sx={{
         color: 'grey.900',
         borderRadius: 0,
+        minWidth: '2.75rem',
+        padding: '.8125rem !important',
       }}
     >
-      {direction === 'plus' ? (
-        <ArrowForwardIos fontSize='medium' />
-      ) : (
-        <ArrowBackIosNew fontSize='medium' />
-      )}
-    </IconButton>
+      {direction === 'plus' ? <PlusBoldIcon /> : <MinusBoldIcon />}
+    </Button>
   )
 }
 
-type Props = TextFieldProps &
+type Props = OutlinedInputProps &
   UseControllerProps<any, any> & {
     description?: string
     errors?: FieldError | undefined
@@ -121,29 +133,25 @@ function RcSesNumberStepper(props: Props) {
       labelSubtitle={labelSubtitle}
     >
       <NumberInput
-        type='number'
-        InputProps={{
+        inputProps={{
           step,
           value,
-          endAdornment: (
-            <>
-              <InputAdornment position='start'>
-                <ArrowButton
-                  onClick={handleOnAdd}
-                  disabled={buttonState[0]}
-                  direction='minus'
-                />
-              </InputAdornment>
-              <InputAdornment position='end'>
-                <ArrowButton
-                  onClick={handleOnSubtract}
-                  disabled={buttonState[1]}
-                  direction='plus'
-                />
-              </InputAdornment>
-            </>
-          ),
         }}
+        type='number'
+        endAdornment={
+          <>
+            <ArrowButton
+              onClick={handleOnAdd}
+              disabled={buttonState[0]}
+              direction='minus'
+            />
+            <ArrowButton
+              onClick={handleOnSubtract}
+              disabled={buttonState[1]}
+              direction='plus'
+            />
+          </>
+        }
         onChange={handleInputOnChange}
         {...fieldProps}
       />
