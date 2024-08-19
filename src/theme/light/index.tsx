@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material'
 
 import MuiAccordion from '@/theme/light/MuiAccordion'
 import MuiAccordionSummary from '@/theme/light/MuiAccordionSummary'
+import MuiAlert from '@/theme/light/MuiAlert'
 import MuiBreadcrumbs from '@/theme/light/MuiBreadcrumbs'
 import MuiButton from '@/theme/light/MuiButton'
 import MuiCard from '@/theme/light/MuiCard'
@@ -26,6 +27,7 @@ const theme = createTheme(themePalette, {
   components: {
     MuiAccordion,
     MuiAccordionSummary,
+    MuiAlert,
     MuiBreadcrumbs,
     MuiButton,
     MuiCard,
