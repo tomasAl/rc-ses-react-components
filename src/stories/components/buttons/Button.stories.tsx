@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 
-import UserIcon from '@/assets/icons/regular/UserIcon'
+import PlusBoldIcon from '@/assets/icons/PlusBoldIcon'
 import Button from '@/components/common/Button/Button'
 import { ButtonProps } from '@/types/buttons/ButtonProps'
 
@@ -97,7 +97,7 @@ export const PrimaryContainedWithPrefixIcon: Story = {
     variant: 'contained',
     color: 'primary',
     disabled: false,
-    startIcon: <UserIcon />,
+    startIcon: <PlusBoldIcon />,
   },
 }
 
@@ -106,7 +106,7 @@ export const PrimaryContainedWithSuffixIcon: Story = {
     variant: 'contained',
     color: 'primary',
     disabled: false,
-    endIcon: <UserIcon />,
+    endIcon: <PlusBoldIcon />,
   },
 }
 
@@ -125,7 +125,7 @@ export const PrimaryOutlinedWithIcon: Story = {
     variant: 'outlined',
     children: (
       <>
-        <UserIcon /> Button
+        <PlusBoldIcon /> Button
       </>
     ),
   },
