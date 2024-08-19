@@ -5,7 +5,13 @@ import palette from '../palette'
 const MuiAutocomplete: Components['MuiAutocomplete'] = {
   defaultProps: {},
   styleOverrides: {
-    root: {},
+    root: {
+      '.MuiOutlinedInput-root': {
+        '.MuiAutocomplete-input': {
+          padding: '.25rem .1875rem',
+        },
+      },
+    },
     paper: {
       fontSize: '.9375rem',
       lineHeight: '1.125rem',

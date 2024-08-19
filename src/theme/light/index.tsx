@@ -13,6 +13,7 @@ import MuiCheckbox from '@/theme/light/MuiCheckbox'
 import MuiChip from '@/theme/light/MuiChip'
 import MuiFormControl from '@/theme/light/MuiFormControl'
 import MuiFormGroup from '@/theme/light/MuiFormGroup'
+import MuiFormHelperText from '@/theme/light/MuiFormHelperText'
 import MuiFormLabel from '@/theme/light/MuiFormLabel'
 import MuiInputBase from '@/theme/light/MuiInputBase'
 import MuiRadio from '@/theme/light/MuiRadio'
@@ -42,6 +43,7 @@ const theme = createTheme(themePalette, {
     MuiChip,
     MuiFormControl,
     MuiFormGroup,
+    MuiFormHelperText,
     MuiFormLabel,
     MuiInputBase,
     MuiRadio,
