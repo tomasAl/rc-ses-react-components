@@ -13,9 +13,11 @@ const MuiStepper: Components['MuiStepper'] = {
         paddingBottom: 0,
         paddingTop: 0,
       },
+
       '.MuiStepLabel-iconContainer': {
         paddingRight: '.625rem',
       },
+
       '.MuiStepLabel-labelContainer': {
         color: palette.grey['700'],
         fontSize: '.875rem',
@@ -29,9 +31,11 @@ const MuiStepper: Components['MuiStepper'] = {
           lineHeight: '1.25rem',
         },
       },
+
       '.MuiStepConnector-root': {
-        // height: '2rem',
+        height: '2rem',
         marginBottom: '-1rem',
+        marginLeft: '11.5px',
         marginTop: '-1rem',
         zIndex: '-1',
 

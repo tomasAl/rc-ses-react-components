@@ -16,12 +16,12 @@ const MuiButton: Components['MuiButton'] = {
   },
   styleOverrides: {
     root: {
-      borderRadius: '0.1875rem',
-      fontSize: '0.9375rem',
+      borderRadius: '.1875rem',
+      fontSize: '.9375rem',
       height: '2.75rem',
       letterSpacing: '.06rem',
       lineHeight: '1.125rem',
-      padding: '0.8125rem 1.25rem',
+      padding: '.8125rem 1.25rem',
       position: 'relative',
       textTransform: 'none',
 
@@ -32,7 +32,7 @@ const MuiButton: Components['MuiButton'] = {
           background: 'transparent',
           width: 'calc(100% + 6px)',
           height: 'calc(100% + 6px)',
-          borderRadius: '0.375rem',
+          borderRadius: '.375rem',
           border: '2px solid',
           borderColor: grey['950'],
           zIndex: 1,
@@ -46,7 +46,11 @@ const MuiButton: Components['MuiButton'] = {
 
     sizeSmall: {
       height: '2.25rem',
-      padding: '0.5rem 0.75rem',
+      padding: '.5rem .75rem',
+    },
+
+    sizeLarge: {
+      padding: '.9375rem 2.25rem',
     },
 
     contained: {
