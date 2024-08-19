@@ -1,15 +1,42 @@
-import { Checkbox as MuiCheckbox, CheckboxProps as MuiCheckboxProps } from '@mui/material'
+import {
+  FormControl,
+  FormControlLabel,
+  Checkbox as MuiCheckbox,
+  CheckboxProps as MuiCheckboxProps,
+} from '@mui/material'
+import { forwardRef } from 'react'
+import { FieldError } from 'react-hook-form'
 
-import CheckboxOffIcon from '@/assets/icons/inputs/CheckboxRoundOffIcon'
-import CheckboxOnIcon from '@/assets/icons/inputs/CheckboxRoundOnIcon'
+import CheckBoldIcon from '@/assets/icons/CheckBoldIcon'
+import CheckUncheckedBoldIcon from '@/assets/icons/CheckUncheckedBoldIcon'
 
-export default function Checkbox(props: MuiCheckboxProps) {
-  const { disabled, color } = props
-  return (
-    <MuiCheckbox
-      {...props}
-      icon={<CheckboxOffIcon disabled={disabled} color={color} />}
-      checkedIcon={<CheckboxOnIcon disabled={disabled} color={color} />}
-    />
-  )
+type Props = MuiCheckboxProps & {
+  children: React.ReactNode
+  errors?: FieldError | undefined
 }
+
+const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
+  const { children, errors, ...checkboxProps } = props
+  return (
+    <FormControl error={!!errors}>
+      <FormControlLabel
+        control={
+          <MuiCheckbox
+            {...checkboxProps}
+            checkedIcon={<CheckBoldIcon />}
+            disableRipple
+            icon={<CheckUncheckedBoldIcon />}
+            inputRef={ref}
+          />
+        }
+        label={children}
+      />
+    </FormControl>
+  )
+})
+
+RcSesCheckbox.defaultProps = {
+  errors: undefined,
+}
+
+export default RcSesCheckbox
