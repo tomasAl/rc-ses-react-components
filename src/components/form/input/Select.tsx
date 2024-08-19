@@ -112,18 +112,21 @@ function RcSesSelect(props: Props) {
             }}
           />
         )}
-        renderOption={({ key, ...optionProps }, option, _state, ownerState) => (
-          <Box key={key} component='li' {...optionProps}>
-            <span className='rc-ses-select-option-label'>
-              {ownerState.getOptionLabel(option)}
-            </span>
-            {!!option && (
-              <span className='rc-ses-select-option-description'>
-                {option.description}
+        renderOption={(optionProps, option, _state, ownerState) => {
+          const { key, ...rest } = optionProps as any
+          return (
+            <Box key={key} component='li' {...rest}>
+              <span className='rc-ses-select-option-label'>
+                {ownerState.getOptionLabel(option)}
               </span>
-            )}
-          </Box>
-        )}
+              {!!option && (
+                <span className='rc-ses-select-option-description'>
+                  {option.description}
+                </span>
+              )}
+            </Box>
+          )
+        }}
       />
     </RcSesFormControlWrapper>
   )
