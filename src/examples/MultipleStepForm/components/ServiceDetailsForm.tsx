@@ -145,9 +145,11 @@ function ServiceDetailsForm() {
         id='numberOfCopies'
         name='numberOfCopies'
         control={control}
-        rules={{ required: true, min: 0, max: 10 }}
-        label='Egzempliorių skaičius'
+        displayStepperControls
         errors={errors?.numberOfCopies}
+        label='Egzempliorių skaičius'
+        labelSubtitle='(neprivaloma)'
+        rules={{ required: true, min: 0, max: 10 }}
       />
     </form>
   )

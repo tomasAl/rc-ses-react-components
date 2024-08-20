@@ -12,7 +12,11 @@ function ServiceFormActions() {
         sx={{
           backgroundColor: palette.primary['50'],
           borderColor: palette.primary['300'],
-          p: 4,
+          borderRadius: { xs: 0, md: '.375rem' },
+          borderLeftWidth: { xs: 0, md: '1px' },
+          borderRightWidth: { xs: 0, md: '1px' },
+          px: { xs: 2, md: 4 },
+          py: 4,
         }}
       >
         <Grid
@@ -41,7 +45,12 @@ function ServiceFormActions() {
         sx={{ justifyContent: 'center', py: { xs: '1.5rem', md: '.875rem' } }}
       >
         <Grid item>
-          <Button variant='text' size='small' color='grey'>
+          <Button
+            variant='text'
+            size='small'
+            color='grey'
+            sx={{ fontWeight: 400, textDecoration: 'underline' }}
+          >
             Atšaukti pildymą ir ištrinti formos duomenis
           </Button>
         </Grid>

@@ -5,6 +5,7 @@ import CollapseChevronsIcon from '@/assets/icons/CollapseChevronsIcon'
 import ExpandChevronsIcon from '@/assets/icons/ExpandChevronsIcon'
 import useAccordionController from '@/components/common/Accordion/hooks/useAccordionController'
 import Button from '@/components/common/Button/Button'
+import palette from '@/theme/palette'
 
 import ServiceWizardStepper from '../ServiceWizardStepper'
 
@@ -16,11 +17,20 @@ function ServiceFormContainer({ accordionController, children }: Props) {
   const { collapseAll, expandAll, state } = accordionController
 
   return (
-    <Container>
+    <Container
+      sx={{
+        backgroundColor: { xs: palette.grey['100'], md: 'white' },
+        pb: { md: 8 },
+        pt: { xs: 0, md: 6 },
+        px: { xs: 0, md: 3 },
+      }}
+    >
       <Grid
         container
         columns={2}
-        sx={{ flexWrap: 'nowrap', mb: { md: 8 }, mt: { xs: 1, md: 6 } }}
+        sx={{
+          flexWrap: 'nowrap',
+        }}
       >
         <Grid item sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
           <ServiceWizardStepper steps={state} />

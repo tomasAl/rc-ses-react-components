@@ -21,18 +21,19 @@ function RcSesFormControlWrapper({
   return (
     <FormControl
       sx={{
-        alignItems: labelSubtitle ? 'center' : 'flex-start',
+        alignItems: { xs: 'stretch', sm: labelSubtitle ? 'center' : 'flex-start' },
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: { xs: 'column', sm: 'row' },
         mb: 2,
         width: '100%',
       }}
     >
       <FormLabel
         sx={{
-          flex: '0 0 273px',
+          flex: { xs: '0 0 0%', sm: '0 0 273px' },
+          marginBottom: { xs: '.25rem', sm: '0' },
           marginTop: labelSubtitle ? 0 : '.75rem',
-          textAlign: 'right',
+          textAlign: { xs: 'left', sm: 'right' },
           pr: 3,
         }}
       >

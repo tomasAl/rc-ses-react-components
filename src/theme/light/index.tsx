@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material'
 
 import MuiAccordion from '@/theme/light/MuiAccordion'
+import MuiAccordionDetails from '@/theme/light/MuiAccordionDetails'
 import MuiAccordionSummary from '@/theme/light/MuiAccordionSummary'
 import MuiAlert from '@/theme/light/MuiAlert'
 import MuiAutocomplete from '@/theme/light/MuiAutocomplete'
@@ -31,6 +32,7 @@ const theme = createTheme(themePalette, {
   },
   components: {
     MuiAccordion,
+    MuiAccordionDetails,
     MuiAccordionSummary,
     MuiAlert,
     MuiAutocomplete,
