@@ -29,16 +29,24 @@ const MuiFormGroup: Components['MuiFormGroup'] = {
             padding: '.75rem 1rem',
             whiteSpace: 'nowrap',
 
-            '&:hover': {
-              // color: palette.primary['700'],
-              borderColor: palette.primary['500'],
-              boxShadow: `0px 0px 0px 4px rgba(${decomposeColor(palette.primary['500']).values}, .2)`,
+            '&.Mui-disabled': {
+              backgroundColor: palette.grey['100'],
+              borderColor: palette.grey['600'],
+              color: palette.grey['600'],
             },
 
-            '&.Mui-checked': {
-              backgroundColor: palette.primary['500'],
-              borderColor: palette.primary['500'],
-              color: 'white',
+            '&:not(.Mui-disabled)': {
+              '&:hover': {
+                // color: palette.primary['700'],
+                borderColor: palette.primary['500'],
+                boxShadow: `0px 0px 0px 4px rgba(${decomposeColor(palette.primary['500']).values}, .2)`,
+              },
+
+              '&.Mui-checked': {
+                backgroundColor: palette.primary['500'],
+                borderColor: palette.primary['500'],
+                color: 'white',
+              },
             },
           },
 

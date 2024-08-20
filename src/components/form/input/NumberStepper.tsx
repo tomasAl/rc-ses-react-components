@@ -36,6 +36,15 @@ const NumberInput = styled(OutlinedInput)({
     '&:hover:not(:disabled)': {
       backgroundColor: palette.grey['200'],
     },
+
+    '&.Mui-disabled': {
+      backgroundColor: `${palette.grey['100']} !important`,
+      borderLeftColor: `${palette.grey['600']} !important`,
+
+      'svg path': {
+        fill: palette.grey['600'],
+      },
+    },
   },
 })
 
@@ -66,6 +75,7 @@ function ArrowButton({ onClick, disabled, direction }: ArrowButtonProps) {
 type Props = OutlinedInputProps &
   UseControllerProps<any, any> & {
     description?: string
+    displayStepperControls?: boolean
     errors?: FieldError | undefined
     label?: string
     labelSubtitle?: string
@@ -80,6 +90,7 @@ function RcSesNumberStepper(props: Props) {
     control,
     description,
     disabled,
+    displayStepperControls,
     errors,
     label,
     labelSubtitle,
@@ -134,23 +145,27 @@ function RcSesNumberStepper(props: Props) {
     >
       <NumberInput
         inputProps={{
+          disabled,
           step,
           value,
         }}
         type='number'
+        disabled={disabled}
         endAdornment={
-          <>
-            <ArrowButton
-              onClick={handleOnAdd}
-              disabled={buttonState[0]}
-              direction='minus'
-            />
-            <ArrowButton
-              onClick={handleOnSubtract}
-              disabled={buttonState[1]}
-              direction='plus'
-            />
-          </>
+          displayStepperControls && (
+            <>
+              <ArrowButton
+                onClick={handleOnAdd}
+                disabled={buttonState[0]}
+                direction='minus'
+              />
+              <ArrowButton
+                onClick={handleOnSubtract}
+                disabled={buttonState[1]}
+                direction='plus'
+              />
+            </>
+          )
         }
         onChange={handleInputOnChange}
         {...fieldProps}
@@ -161,6 +176,7 @@ function RcSesNumberStepper(props: Props) {
 
 RcSesNumberStepper.defaultProps = {
   description: undefined,
+  displayStepperControls: false,
   errors: undefined,
   label: undefined,
   labelSubtitle: undefined,

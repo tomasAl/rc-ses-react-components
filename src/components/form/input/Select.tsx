@@ -32,6 +32,7 @@ function RcSesSelect(props: Props) {
   const {
     control,
     description,
+    disabled,
     errors,
     label,
     labelSubtitle,
@@ -47,7 +48,7 @@ function RcSesSelect(props: Props) {
   const id = props.id ?? crypto.randomUUID()
 
   const {
-    field: { onChange, value, disabled },
+    field: { onChange, value },
   } = useController({
     control,
     name,
@@ -100,6 +101,7 @@ function RcSesSelect(props: Props) {
         renderInput={(params) => (
           <TextField
             {...params}
+            disabled={disabled}
             error={hasError}
             InputProps={{
               ...params.InputProps,

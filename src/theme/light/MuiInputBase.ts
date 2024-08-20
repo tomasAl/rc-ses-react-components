@@ -32,14 +32,14 @@ const MuiInputBase: Components['MuiInputBase'] = {
       },
 
       '&.Mui-disabled': {
-        backgroundColor: palette.grey['100'],
+        backgroundColor: `${palette.grey['100']} !important`,
 
         '.MuiOutlinedInput-notchedOutline': {
-          borderColor: palette.grey['600'],
+          borderColor: `${palette.grey['600']} !important`,
         },
 
         '.MuiInputBase-input': {
-          color: palette.grey['600'],
+          color: `${palette.grey['600']} !important`,
         },
       },
 
