@@ -32,6 +32,4 @@ function Tab(props: TabsProps): React.ReactNode {
   return <StyledTabs {...tabsProps}>{children}</StyledTabs>
 }
 
-Tab.defaultProps = {}
-
 export default Tab

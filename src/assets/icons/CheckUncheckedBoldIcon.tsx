@@ -1,4 +1,4 @@
-function CheckUncheckedBoldIcon({ className }: { className?: string }) {
+function CheckUncheckedBoldIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -21,10 +21,6 @@ function CheckUncheckedBoldIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-CheckUncheckedBoldIcon.defaultProps = {
-  className: undefined,
 }
 
 export default CheckUncheckedBoldIcon

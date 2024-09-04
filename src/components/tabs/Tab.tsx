@@ -16,6 +16,4 @@ function Tab(props: TabProps): React.ReactNode {
   )
 }
 
-Tab.defaultProps = {}
-
 export default Tab

@@ -22,6 +22,4 @@ function Breadcrumbs({ path }: Props) {
   )
 }
 
-Breadcrumbs.defaultProps = {}
-
 export default Breadcrumbs

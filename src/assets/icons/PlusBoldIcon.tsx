@@ -1,4 +1,4 @@
-function PlusBoldIcon({ className }: { className?: string }) {
+function PlusBoldIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function PlusBoldIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-PlusBoldIcon.defaultProps = {
-  className: undefined,
 }
 
 export default PlusBoldIcon

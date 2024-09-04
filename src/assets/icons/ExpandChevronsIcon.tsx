@@ -1,4 +1,4 @@
-function ExpandChevronsIcon({ className }: { className?: string }) {
+function ExpandChevronsIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function ExpandChevronsIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-ExpandChevronsIcon.defaultProps = {
-  className: undefined,
 }
 
 export default ExpandChevronsIcon

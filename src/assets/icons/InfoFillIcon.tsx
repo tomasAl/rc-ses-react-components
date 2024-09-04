@@ -1,4 +1,4 @@
-function InfoFillIcon({ className }: { className?: string }) {
+function InfoFillIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function InfoFillIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-InfoFillIcon.defaultProps = {
-  className: undefined,
 }
 
 export default InfoFillIcon

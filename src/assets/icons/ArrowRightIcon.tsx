@@ -1,4 +1,4 @@
-function ArrowRightIcon({ className }: { className?: string }) {
+function ArrowRightIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function ArrowRightIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-ArrowRightIcon.defaultProps = {
-  className: undefined,
 }
 
 export default ArrowRightIcon

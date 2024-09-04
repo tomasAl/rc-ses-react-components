@@ -1,4 +1,4 @@
-function CloseIcon({ className }: { className?: string }) {
+function CloseIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function CloseIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-CloseIcon.defaultProps = {
-  className: undefined,
 }
 
 export default CloseIcon

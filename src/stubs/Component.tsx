@@ -6,6 +6,4 @@ function SuperName(props: Props) {
   return <></>
 }
 
-SuperName.defaultProps = {}
-
 export default SuperName

@@ -1,4 +1,4 @@
-function CheckBoldIcon({ className }: { className?: string }) {
+function CheckBoldIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -24,10 +24,6 @@ function CheckBoldIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-CheckBoldIcon.defaultProps = {
-  className: undefined,
 }
 
 export default CheckBoldIcon

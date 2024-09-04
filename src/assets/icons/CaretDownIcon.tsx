@@ -1,4 +1,4 @@
-function CaretDownIcon({ className }: { className?: string }) {
+function CaretDownIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function CaretDownIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-CaretDownIcon.defaultProps = {
-  className: undefined,
 }
 
 export default CaretDownIcon

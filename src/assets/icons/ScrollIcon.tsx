@@ -1,4 +1,4 @@
-function ScrollIcon({ className }: { className?: string }) {
+function ScrollIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function ScrollIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-ScrollIcon.defaultProps = {
-  className: undefined,
 }
 
 export default ScrollIcon

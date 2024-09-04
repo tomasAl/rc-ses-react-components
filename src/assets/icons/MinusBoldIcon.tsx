@@ -1,4 +1,4 @@
-function MinusBoldIcon({ className }: { className?: string }) {
+function MinusBoldIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function MinusBoldIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-MinusBoldIcon.defaultProps = {
-  className: undefined,
 }
 
 export default MinusBoldIcon

@@ -1,4 +1,4 @@
-function CheckCircleFillIcon({ className }: { className?: string }) {
+function CheckCircleFillIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function CheckCircleFillIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-CheckCircleFillIcon.defaultProps = {
-  className: undefined,
 }
 
 export default CheckCircleFillIcon

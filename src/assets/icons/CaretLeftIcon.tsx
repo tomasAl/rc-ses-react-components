@@ -1,4 +1,4 @@
-function CaretLeftIcon({ className }: { className?: string }) {
+function CaretLeftIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function CaretLeftIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-CaretLeftIcon.defaultProps = {
-  className: undefined,
 }
 
 export default CaretLeftIcon

@@ -1,4 +1,4 @@
-function WarningFillIcon({ className }: { className?: string }) {
+function WarningFillIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -15,9 +15,4 @@ function WarningFillIcon({ className }: { className?: string }) {
     </svg>
   )
 }
-
-WarningFillIcon.defaultProps = {
-  className: undefined,
-}
-
 export default WarningFillIcon

@@ -1,4 +1,4 @@
-function CollapseChevronsIcon({ className }: { className?: string }) {
+function CollapseChevronsIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function CollapseChevronsIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-CollapseChevronsIcon.defaultProps = {
-  className: undefined,
 }
 
 export default CollapseChevronsIcon

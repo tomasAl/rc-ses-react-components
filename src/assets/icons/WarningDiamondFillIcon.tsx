@@ -1,4 +1,4 @@
-function WarningDiamondFillIcon({ className }: { className?: string }) {
+function WarningDiamondFillIcon({ className = undefined }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -14,10 +14,6 @@ function WarningDiamondFillIcon({ className }: { className?: string }) {
       />
     </svg>
   )
-}
-
-WarningDiamondFillIcon.defaultProps = {
-  className: undefined,
 }
 
 export default WarningDiamondFillIcon
