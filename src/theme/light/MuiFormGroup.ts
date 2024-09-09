@@ -7,8 +7,9 @@ const MuiFormGroup: Components['MuiFormGroup'] = {
   styleOverrides: {
     root: {
       '&.MuiRadioGroup-root': {
+        flexDirection: 'row',
+
         '&.rc-ses-hide-native-radio': {
-          flexDirection: 'row',
           margin: '-.25rem',
 
           '.MuiButtonBase-root': {

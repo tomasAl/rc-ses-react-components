@@ -5,7 +5,7 @@ const MuiAccordionDetails: Components['MuiAccordionDetails'] = {
     sx: {
       padding: {
         xs: '1.25rem 1rem 2.5rem',
-        md: '3rem 2rem 4rem',
+        md: '2.5rem 2rem 4rem',
       },
     },
   },
