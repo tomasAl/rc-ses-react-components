@@ -1,4 +1,4 @@
-import { Components, decomposeColor } from '@mui/material'
+import { Components } from '@mui/material'
 
 import palette from '../palette'
 
@@ -58,20 +58,6 @@ const MuiRadio: Components['MuiRadio'] = {
       borderWidth: '2px',
       margin: '5px',
       padding: '4px',
-
-      '&:hover': {
-        backgroundColor: `rgba(${decomposeColor(palette.primary['400']).values}, .2)`,
-
-        '[data-name="outer"]': {
-          stroke: palette.primary['500'],
-        },
-      },
-
-      '&:active': {
-        '[data-name="inner"]': {
-          fill: palette.primary['100'],
-        },
-      },
 
       '&.Mui-disabled': {
         '[data-name="inner"]': {
