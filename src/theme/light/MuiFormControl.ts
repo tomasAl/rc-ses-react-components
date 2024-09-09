@@ -18,7 +18,7 @@ const MuiFormControl: Components['MuiFormControl'] = {
         '&.Mui-error': {
           '.MuiCheckbox-root': {
             '.checkbox-stroke': {
-              stroke: `${palette.error['600']}`,
+              stroke: palette.error['600'],
             },
 
             '&:hover': {
