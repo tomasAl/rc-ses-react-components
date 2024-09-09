@@ -3,16 +3,13 @@ import {
   TextField,
 } from '@mui/material'
 import { forwardRef } from 'react'
-import { FieldError } from 'react-hook-form'
 
-import RcSesFormControlWrapper from '../FormControlWrapper'
+import RcSesFormControlWrapper, {
+  RcSesFormControlWrapperProps,
+} from '../components/FormControlWrapper'
 
-interface Props extends Omit<MuiOutlinedTextFieldProps, 'variant'> {
-  description?: string
-  errors?: FieldError | undefined
-  label?: string
-  labelSubtitle?: string
-}
+type Props = Omit<MuiOutlinedTextFieldProps, 'variant'> &
+  Partial<RcSesFormControlWrapperProps>
 
 const RcSesTextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { description, label, labelSubtitle, ...inputProps } = props
@@ -30,12 +27,5 @@ const RcSesTextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     </RcSesFormControlWrapper>
   )
 })
-
-RcSesTextField.defaultProps = {
-  description: undefined,
-  errors: undefined,
-  label: undefined,
-  labelSubtitle: undefined,
-}
 
 export default RcSesTextField

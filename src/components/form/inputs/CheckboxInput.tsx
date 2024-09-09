@@ -35,8 +35,4 @@ const RcSesCheckboxInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
   )
 })
 
-RcSesCheckboxInput.defaultProps = {
-  errors: undefined,
-}
-
 export default RcSesCheckboxInput

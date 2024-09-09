@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form'
 
-import RcSesCheckbox from '@/components/form/input/Checkbox'
-import RcSesNumberStepper from '@/components/form/input/NumberStepper'
-import RcSesSelect from '@/components/form/input/Select'
+import RcSesCheckbox from '@/components/form/inputs/Checkbox'
+import RcSesNumberStepper from '@/components/form/inputs/NumberStepper'
+import RcSesSelect from '@/components/form/inputs/Select'
 
 type FormModel = {
   purpose: string
@@ -63,7 +63,7 @@ function ServiceDetailsForm() {
       />
 
       <RcSesCheckbox
-        id='legalBasis'
+        id='agreement'
         errors={errors?.agreement}
         label='Sutikimas'
         {...register('agreement', { required: true })}
@@ -149,7 +149,7 @@ function ServiceDetailsForm() {
         errors={errors?.numberOfCopies}
         label='Egzempliorių skaičius'
         labelSubtitle='(neprivaloma)'
-        rules={{ required: true, min: 0, max: 10 }}
+        rules={{ required: false, min: 0, max: 10 }}
       />
     </form>
   )

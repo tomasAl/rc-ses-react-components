@@ -5,13 +5,14 @@ import {
   styled,
 } from '@mui/material'
 import { forwardRef } from 'react'
-import { FieldError } from 'react-hook-form'
 
 import CheckBoldIcon from '@/assets/icons/CheckBoldIcon'
 import CheckUncheckedBoldIcon from '@/assets/icons/CheckUncheckedBoldIcon'
 import palette from '@/theme/palette'
 
-import RcSesFormControlWrapper from '../FormControlWrapper'
+import RcSesFormControlWrapper, {
+  RcSesFormControlWrapperProps,
+} from '../components/FormControlWrapper'
 
 const StyledFormControlLabel = styled(FormControlLabel)({
   backgroundColor: palette.grey['50'],
@@ -28,13 +29,10 @@ const StyledFormControlLabel = styled(FormControlLabel)({
   },
 })
 
-type Props = MuiCheckboxProps & {
-  children: React.ReactNode
-  description?: string
-  errors?: FieldError | undefined
-  label?: string
-  labelSubtitle?: string
-}
+type Props = MuiCheckboxProps &
+  Partial<RcSesFormControlWrapperProps> & {
+    children: React.ReactNode
+  }
 
 const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { children, description, label, labelSubtitle, ...checkboxProps } = props
@@ -63,12 +61,5 @@ const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
     </RcSesFormControlWrapper>
   )
 })
-
-RcSesCheckbox.defaultProps = {
-  description: undefined,
-  errors: undefined,
-  label: undefined,
-  labelSubtitle: undefined,
-}
 
 export default RcSesCheckbox

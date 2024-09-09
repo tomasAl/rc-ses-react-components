@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 
-import RcSesTextField from '@/components/form/input/TextField'
+import RcSesTextField from '@/components/form/inputs/TextField'
 
 type FormModel = {
   additionalServices: string

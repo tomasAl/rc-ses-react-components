@@ -1,24 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import { FieldError, UseControllerProps, useController } from 'react-hook-form'
+import { UseControllerProps, useController } from 'react-hook-form'
 
-import RcSesFormControlWrapper from '../FormControlWrapper'
+import RcSesFormControlWrapper, {
+  RcSesFormControlWrapperProps,
+} from '../components/FormControlWrapper'
 
 export type RadioOption = {
   label: string
   value: string
 }
 
-type Props = UseControllerProps<any, any> & {
-  id: string
-  className?: string
-  description?: string
-  hideNativeRadio?: boolean
-  errors?: FieldError | undefined
-  label?: string
-  labelSubtitle?: string
-  options: Array<RadioOption>
-}
+type Props = Partial<RcSesFormControlWrapperProps> &
+  UseControllerProps<any, any> & {
+    className?: string
+    hideNativeRadio?: boolean
+    options: Array<RadioOption>
+  }
 
 function RcSesRadioButtonGroup(props: Props) {
   const {
@@ -69,15 +67,6 @@ function RcSesRadioButtonGroup(props: Props) {
       </RadioGroup>
     </RcSesFormControlWrapper>
   )
-}
-
-RcSesRadioButtonGroup.defaultProps = {
-  className: undefined,
-  description: undefined,
-  hideNativeRadio: false,
-  errors: undefined,
-  label: undefined,
-  labelSubtitle: undefined,
 }
 
 export default RcSesRadioButtonGroup

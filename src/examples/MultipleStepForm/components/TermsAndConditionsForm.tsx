@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 
-import RcSesCheckboxInput from '@/components/form/input/CheckboxInput'
+import RcSesCheckboxInput from '@/components/form/inputs/CheckboxInput'
 
 type FormModel = {
   agreement: boolean

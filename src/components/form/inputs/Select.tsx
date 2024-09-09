@@ -5,10 +5,12 @@ import {
   CircularProgress,
   TextField,
 } from '@mui/material'
-import React, { useMemo, useState } from 'react'
-import { FieldError, UseControllerProps, useController } from 'react-hook-form'
+import { useMemo, useState } from 'react'
+import { UseControllerProps, useController } from 'react-hook-form'
 
-import RcSesFormControlWrapper from '../FormControlWrapper'
+import RcSesFormControlWrapper, {
+  RcSesFormControlWrapperProps,
+} from '../components/FormControlWrapper'
 
 type Option = {
   description?: string
@@ -16,13 +18,9 @@ type Option = {
   value: string
 }
 
-type Props = Pick<AutocompleteProps<Option | '', false, true, false>, 'onInputChange'> &
+type Props = Partial<RcSesFormControlWrapperProps> &
+  Pick<AutocompleteProps<Option | '', false, true, false>, 'onInputChange'> &
   UseControllerProps<any, any> & {
-    id: string
-    label?: string | undefined
-    labelSubtitle?: React.ReactNode
-    description?: React.ReactNode
-    errors: FieldError | undefined
     options: (Option | '')[]
     loading?: boolean
   }
@@ -132,13 +130,6 @@ function RcSesSelect(props: Props) {
       />
     </RcSesFormControlWrapper>
   )
-}
-
-RcSesSelect.defaultProps = {
-  description: undefined,
-  label: undefined,
-  labelSubtitle: undefined,
-  loading: false,
 }
 
 export default RcSesSelect

@@ -1,4 +1,4 @@
-import { AccordionDetails, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 
 import RcSesAccordion from '@/components/common/Accordion'
 import useAccordionController from '@/components/common/Accordion/hooks/useAccordionController'
@@ -15,30 +15,32 @@ import TermsAndConditionsForm from './components/TermsAndConditionsForm'
 
 function MultipleStepForm() {
   const accordionController = useAccordionController({
-    basicInformation: {
-      expanded: false,
-      state: 'completed',
-      title: 'Bazinė informacija',
-    },
-    serviceDetails: {
-      expanded: true,
-      state: 'active',
-      title: 'Paslaugos užsakymas',
-    },
-    serviceIssuance: {
-      expanded: false,
-      state: 'pending',
-      title: 'Išdavimas',
-    },
-    additionalServices: {
-      expanded: false,
-      state: 'pending',
-      title: 'Reikalingos papildomos paslaugos',
-    },
-    termsAndConditions: {
-      expanded: false,
-      state: 'pending',
-      title: 'Terminai ir sąlygos',
+    initialState: {
+      basicInformation: {
+        expanded: false,
+        state: 'completed',
+        title: 'Bazinė informacija',
+      },
+      serviceDetails: {
+        expanded: true,
+        state: 'active',
+        title: 'Paslaugos užsakymas',
+      },
+      serviceIssuance: {
+        expanded: false,
+        state: 'pending',
+        title: 'Išdavimas',
+      },
+      additionalServices: {
+        expanded: false,
+        state: 'pending',
+        title: 'Reikalingos papildomos paslaugos',
+      },
+      termsAndConditions: {
+        expanded: false,
+        state: 'pending',
+        title: 'Terminai ir sąlygos',
+      },
     },
   })
 
@@ -60,36 +62,27 @@ function MultipleStepForm() {
         </Typography>
       </ServiceHeader>
 
-      <ServiceFormContainer accordionController={accordionController}>
+      <ServiceFormContainer accordionController={accordionController} showProgressStepper>
         <RcSesAccordion id='basicInformation' controller={accordionController}>
-          <AccordionDetails>
-            <BasicInformationForm />
-          </AccordionDetails>
+          <BasicInformationForm />
         </RcSesAccordion>
 
         <RcSesAccordion id='serviceDetails' controller={accordionController}>
-          <AccordionDetails>
-            <ServiceDetailsForm />
-          </AccordionDetails>
+          <ServiceDetailsForm />
         </RcSesAccordion>
 
         <RcSesAccordion id='serviceIssuance' controller={accordionController}>
-          <AccordionDetails>
-            <ServiceIssuanceForm />
-          </AccordionDetails>
+          <ServiceIssuanceForm />
         </RcSesAccordion>
 
         <RcSesAccordion id='additionalServices' controller={accordionController}>
-          <AccordionDetails>
-            <AdditionalServicesForm />
-          </AccordionDetails>
+          <AdditionalServicesForm />
         </RcSesAccordion>
 
         <RcSesAccordion id='termsAndConditions' controller={accordionController}>
-          <AccordionDetails>
-            <TermsAndConditionsForm />
-          </AccordionDetails>
+          <TermsAndConditionsForm />
         </RcSesAccordion>
+
         <ServiceFormActions />
       </ServiceFormContainer>
     </ServicePage>

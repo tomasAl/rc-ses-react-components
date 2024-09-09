@@ -1,13 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Button, OutlinedInput, OutlinedInputProps, styled } from '@mui/material'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { FieldError, UseControllerProps, useController } from 'react-hook-form'
+import { UseControllerProps, useController } from 'react-hook-form'
 
 import MinusBoldIcon from '@/assets/icons/MinusBoldIcon'
 import PlusBoldIcon from '@/assets/icons/PlusBoldIcon'
 import palette from '@/theme/palette'
 
-import RcSesFormControlWrapper from '../FormControlWrapper'
+import RcSesFormControlWrapper, {
+  RcSesFormControlWrapperProps,
+} from '../components/FormControlWrapper'
 
 const NumberInput = styled(OutlinedInput)({
   paddingRight: 0,
@@ -72,13 +74,10 @@ function ArrowButton({ onClick, disabled, direction }: ArrowButtonProps) {
   )
 }
 
-type Props = OutlinedInputProps &
+type Props = Partial<RcSesFormControlWrapperProps> &
+  OutlinedInputProps &
   UseControllerProps<any, any> & {
-    description?: string
     displayStepperControls?: boolean
-    errors?: FieldError | undefined
-    label?: string
-    labelSubtitle?: string
     min?: string | number
     max?: string | number
     step?: string | number
@@ -172,17 +171,6 @@ function RcSesNumberStepper(props: Props) {
       />
     </RcSesFormControlWrapper>
   )
-}
-
-RcSesNumberStepper.defaultProps = {
-  description: undefined,
-  displayStepperControls: false,
-  errors: undefined,
-  label: undefined,
-  labelSubtitle: undefined,
-  min: undefined,
-  max: undefined,
-  step: 1,
 }
 
 export default RcSesNumberStepper
