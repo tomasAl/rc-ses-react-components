@@ -15,6 +15,7 @@ import MuiCardContent from '@/theme/light/MuiCardContent'
 import MuiCardHeader from '@/theme/light/MuiCardHeader'
 import MuiCheckbox from '@/theme/light/MuiCheckbox'
 import MuiChip from '@/theme/light/MuiChip'
+import MuiDivider from '@/theme/light/MuiDivider'
 import MuiFormControl from '@/theme/light/MuiFormControl'
 import MuiFormGroup from '@/theme/light/MuiFormGroup'
 import MuiFormHelperText from '@/theme/light/MuiFormHelperText'
@@ -43,6 +44,7 @@ const theme = createTheme(themePalette, ltLT, {
     MuiCardHeader,
     MuiCheckbox,
     MuiChip,
+    MuiDivider,
     MuiFormControl,
     MuiFormGroup,
     MuiFormHelperText,
