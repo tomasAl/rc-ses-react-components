@@ -2,7 +2,11 @@ import { useState } from 'react'
 
 import { AccordionControllerState } from '../types/AccordionControllerState'
 
-function useAccordionController(initialState: AccordionControllerState) {
+type Props = {
+  initialState: AccordionControllerState
+}
+
+function useAccordionController({ initialState }: Props) {
   const [state, setState] = useState<AccordionControllerState>(initialState)
 
   const toggleAccordion = (id: string, isExpanded: boolean) => {

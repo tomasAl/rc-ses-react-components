@@ -1,20 +1,31 @@
 import { Container, Grid } from '@mui/material'
-import React from 'react'
+import React, { useMemo } from 'react'
 
-import CollapseChevronsIcon from '@/assets/icons/CollapseChevronsIcon'
-import ExpandChevronsIcon from '@/assets/icons/ExpandChevronsIcon'
 import useAccordionController from '@/components/common/Accordion/hooks/useAccordionController'
-import Button from '@/components/common/Button/Button'
 import palette from '@/theme/palette'
 
 import ServiceWizardStepper from '../ServiceWizardStepper'
+import AccordionCollapseControls from './components/AccordionCollapseControls'
 
 type Props = {
   accordionController: ReturnType<typeof useAccordionController>
   children: React.ReactNode
+  showAccordionCollapseControls?: boolean
+  showProgressStepper?: boolean
 }
-function ServiceFormContainer({ accordionController, children }: Props) {
-  const { collapseAll, expandAll, state } = accordionController
+
+function ServiceFormContainer({
+  accordionController,
+  children,
+  showAccordionCollapseControls = false,
+  showProgressStepper = false,
+}: Props) {
+  const { state } = accordionController
+
+  const areAccordionCollapseControlsVisible = useMemo(() => {
+    if (Object.keys(state).length <= 1 || !showAccordionCollapseControls) return false
+    return true
+  }, [showAccordionCollapseControls, state])
 
   return (
     <Container
@@ -27,41 +38,19 @@ function ServiceFormContainer({ accordionController, children }: Props) {
     >
       <Grid
         container
-        columns={2}
-        sx={{
-          flexWrap: 'nowrap',
-        }}
+        columns={showProgressStepper ? 2 : 1}
+        sx={{ flexWrap: 'nowrap', justifyContent: 'center' }}
       >
-        <Grid item sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
-          <ServiceWizardStepper steps={state} />
-        </Grid>
+        {showProgressStepper && (
+          <Grid item sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
+            <ServiceWizardStepper steps={state} />
+          </Grid>
+        )}
 
         <Grid item sx={{ width: { xs: '100%', md: '840px' } }}>
-          <Grid
-            container
-            sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}
-          >
-            <Grid item>
-              <Button
-                variant='text'
-                size='small'
-                startIcon={<ExpandChevronsIcon />}
-                onClick={expandAll}
-              >
-                Praskleisti visus
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant='text'
-                size='small'
-                startIcon={<CollapseChevronsIcon />}
-                onClick={collapseAll}
-              >
-                Suskleisti visus
-              </Button>
-            </Grid>
-          </Grid>
+          {areAccordionCollapseControlsVisible && (
+            <AccordionCollapseControls controller={accordionController} />
+          )}
           {children}
         </Grid>
       </Grid>

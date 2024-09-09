@@ -1,4 +1,5 @@
 import Accordion from '@mui/material/Accordion'
+import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import { SyntheticEvent } from 'react'
 
@@ -34,7 +35,7 @@ function RcSesAccordion(props: Props) {
       <AccordionSummary aria-controls={`${id}-content`} id={`${id}-header`}>
         {title}
       </AccordionSummary>
-      {children}
+      <AccordionDetails>{children}</AccordionDetails>
     </Accordion>
   )
 }
