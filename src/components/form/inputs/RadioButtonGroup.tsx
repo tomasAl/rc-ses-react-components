@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { FormControlLabel, Radio, RadioGroup } from '@mui/material'
+import { FormControlLabel, Radio, RadioGroup, styled } from '@mui/material'
 import { UseControllerProps, useController } from 'react-hook-form'
+
+import palette from '@/theme/palette'
 
 import RcSesFormControlWrapper, {
   RcSesFormControlWrapperProps,
@@ -16,11 +18,13 @@ type Props = Partial<RcSesFormControlWrapperProps> &
     className?: string
     hideNativeRadio?: boolean
     options: Array<RadioOption>
+    variant?: 'flat' | 'outlined' | 'filled'
   }
 
 function RcSesRadioButtonGroup(props: Props) {
   const {
     control,
+    className,
     description,
     disabled,
     hideNativeRadio,
@@ -30,6 +34,8 @@ function RcSesRadioButtonGroup(props: Props) {
     name,
     options,
     rules,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    variant = 'flat',
   } = props
 
   // eslint-disable-next-line react/destructuring-assignment
@@ -43,6 +49,7 @@ function RcSesRadioButtonGroup(props: Props) {
 
   return (
     <RcSesFormControlWrapper
+      className={className}
       description={description}
       errors={errors}
       id={id}
@@ -69,4 +76,16 @@ function RcSesRadioButtonGroup(props: Props) {
   )
 }
 
-export default RcSesRadioButtonGroup
+const StyledRcSesRadioButtonGroup = styled(RcSesRadioButtonGroup)((props) => ({
+  '.rc-ses-form-field-wrapper': {
+    backgroundColor: props.variant === 'filled' ? palette.grey['100'] : 'transparent',
+    borderColor: props.variant === 'outlined' ? palette.grey['500'] : 'transparent',
+    borderStyle: 'solid',
+    borderWidth: props.variant === 'outlined' ? '1px' : 0,
+    borderRadius: '.1875rem',
+    margin: 0,
+    padding: '.25rem .75rem',
+  },
+}))
+
+export default StyledRcSesRadioButtonGroup
