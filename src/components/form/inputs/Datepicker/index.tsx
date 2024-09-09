@@ -15,8 +15,8 @@ import RcSesDatepickerCalendarHeader from './components/RcSesDatepickerCalendarH
 
 type Props = Partial<RcSesFormControlWrapperProps> &
   UseControllerProps<any, any> & {
-    slotProps: {
-      datepicker: DatePickerProps<Date, boolean>
+    slotProps?: {
+      datepicker?: DatePickerProps<Date, boolean>
     }
   }
 
