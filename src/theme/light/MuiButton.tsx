@@ -1,14 +1,49 @@
 import { Components } from '@mui/material'
 
-import { error, grey, primary, secondary, warning } from '../palette'
+import palette, { error, grey, primary, secondary, warning } from '../palette'
 
 declare module '@mui/material' {
+  interface ButtonPropsVariantOverrides {
+    link: true
+  }
   interface ButtonPropsColorOverrides {
     grey: any
   }
 }
 
 const MuiButton: Components['MuiButton'] = {
+  variants: [
+    {
+      props: {
+        variant: 'link',
+      },
+      style: {
+        color: palette.primary['600'],
+        fontSize: '.875rem',
+        fontWeight: 500,
+        lineHeight: '1rem',
+        padding: '.6875px .25rem',
+
+        '&.Mui-disabled': {
+          opacity: 0.4,
+        },
+
+        '&:not(.Mui-disabled)': {
+          '&:hover': {
+            color: palette.primary['700'],
+          },
+
+          '&:active': {
+            color: palette.primary['900'],
+          },
+
+          '&:focus': {
+            color: palette.primary['600'],
+          },
+        },
+      },
+    },
+  ],
   defaultProps: {
     disableElevation: true,
     disableRipple: true,

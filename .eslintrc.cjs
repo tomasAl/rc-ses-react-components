@@ -24,6 +24,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
     'linebreak-style': (process.platform === 'win32' ? 0 : ['error', 'unix']),
     'no-underscore-dangle': ['off'],
     'no-param-reassign': [2, { 'props': false }],
