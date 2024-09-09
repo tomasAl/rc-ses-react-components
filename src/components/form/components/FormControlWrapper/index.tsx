@@ -3,6 +3,7 @@ import { FieldError } from 'react-hook-form'
 
 type Props = {
   children: React.ReactNode
+  className?: string
   description?: React.ReactNode
   errors?: FieldError | undefined
   id: string
@@ -12,6 +13,7 @@ type Props = {
 
 function RcSesFormControlWrapper({
   children,
+  className = undefined,
   description = undefined,
   errors = undefined,
   id,
@@ -19,8 +21,9 @@ function RcSesFormControlWrapper({
   labelSubtitle = undefined,
 }: Props) {
   return (
-    <FormControl sx={{ mb: 2, width: '100%' }}>
+    <FormControl sx={{ my: 1, width: '100%' }} className={className}>
       <Box
+        className='rc-ses-form-control-wrapper'
         sx={{
           alignItems: 'center',
           display: 'flex',
@@ -42,7 +45,9 @@ function RcSesFormControlWrapper({
           )}
         </FormLabel>
 
-        <Box sx={{ flex: '1 1 0%' }}>{children}</Box>
+        <Box sx={{ flex: '1 1 0%' }} className='rc-ses-form-field-wrapper'>
+          {children}
+        </Box>
       </Box>
 
       <Box sx={{ flex: '1 1 0%', ml: { sm: '273px' } }}>
