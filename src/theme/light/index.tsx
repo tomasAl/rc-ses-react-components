@@ -15,6 +15,7 @@ import MuiCardContent from '@/theme/light/MuiCardContent'
 import MuiCardHeader from '@/theme/light/MuiCardHeader'
 import MuiCheckbox from '@/theme/light/MuiCheckbox'
 import MuiChip from '@/theme/light/MuiChip'
+import MuiDialog from '@/theme/light/MuiDialog'
 import MuiDivider from '@/theme/light/MuiDivider'
 import MuiFormControl from '@/theme/light/MuiFormControl'
 import MuiFormControlLabel from '@/theme/light/MuiFormControlLabel'
@@ -26,6 +27,8 @@ import MuiPickersLayout from '@/theme/light/MuiPickersLayout'
 import MuiRadio from '@/theme/light/MuiRadio'
 import MuiSelect from '@/theme/light/MuiSelect'
 import MuiStepper from '@/theme/light/MuiStepper'
+import MuiTable from '@/theme/light/MuiTable'
+import MuiTableCell from '@/theme/light/MuiTableCell'
 import MuiTextField from '@/theme/light/MuiTextField'
 import MuiTypography from '@/theme/light/MuiTypography'
 import themePalette from '@/theme/light/themePalette'
@@ -45,6 +48,7 @@ const theme = createTheme(themePalette, ltLT, {
     MuiCardHeader,
     MuiCheckbox,
     MuiChip,
+    MuiDialog,
     MuiDivider,
     MuiFormControl,
     MuiFormControlLabel,
@@ -56,6 +60,8 @@ const theme = createTheme(themePalette, ltLT, {
     MuiRadio,
     MuiSelect,
     MuiStepper,
+    MuiTable,
+    MuiTableCell,
     MuiTextField,
     MuiTypography,
   },
