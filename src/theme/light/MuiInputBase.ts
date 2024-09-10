@@ -13,7 +13,7 @@ const MuiInputBase: Components['MuiInputBase'] = {
         fontSize: '.9375rem',
         height: '1.125rem',
         lineHeight: '1.125rem',
-        padding: '.8125rem .875rem',
+        padding: '.8125rem .75rem',
 
         '&::placeholder': {
           color: palette.grey['600'],
@@ -47,6 +47,20 @@ const MuiInputBase: Components['MuiInputBase'] = {
         '.MuiOutlinedInput-notchedOutline': {
           borderColor: palette.grey['900'],
         },
+      },
+    },
+    adornedStart: {
+      paddingLeft: '.625rem !important',
+
+      '.MuiInputBase-input': {
+        paddingLeft: 0,
+      },
+    },
+    adornedEnd: {
+      paddingRight: '.625rem !important',
+
+      '.MuiInputBase-input': {
+        paddingRight: 0,
       },
     },
   },
