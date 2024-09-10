@@ -5,6 +5,7 @@ import RcSesAccordion from '@/components/common/Accordion'
 import useAccordionController from '@/components/common/Accordion/hooks/useAccordionController'
 import RcSesCheckbox from '@/components/form/inputs/Checkbox'
 import RcSesDatepicker from '@/components/form/inputs/Datepicker'
+import RcSesFileUpload from '@/components/form/inputs/FileUpload'
 import RcSesNumberStepper from '@/components/form/inputs/NumberStepper'
 import RcSesRadioButtonGroup from '@/components/form/inputs/RadioButtonGroup'
 import RcSesSearchableField from '@/components/form/inputs/SearchableField'
@@ -141,6 +142,15 @@ function SingleStepForm() {
               Pagal užsakymą gautus duomenis naudosiu nurodytam duomenų tikslui ir šių
               duomenų neatskleisiu tretiesiems asmenims.
             </RcSesCheckbox>
+
+            <RcSesFileUpload
+              id='fileUpload'
+              name='fileUpload'
+              control={control}
+              rules={{ required: true }}
+              label='Failo įkėlimas'
+              errors={errors?.fileUpload}
+            />
 
             <Divider />
 
