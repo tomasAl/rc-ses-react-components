@@ -24,6 +24,7 @@ type Props = Partial<RcSesFormControlWrapperProps> &
     options: (Option | '')[]
     loading?: boolean
   }
+
 function RcSesSelect(props: Props) {
   const [inputValue, setInputValue] = useState<string>('')
 
