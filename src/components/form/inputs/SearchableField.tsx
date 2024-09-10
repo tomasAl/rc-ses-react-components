@@ -78,7 +78,7 @@ const RcSesSearchableField = forwardRef<HTMLInputElement, Props>((props, ref) =>
       <ModalComponent
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onSubmit={(value: string) => onChange(value)}
+        onSubmit={(val: string) => onChange(val)}
       />
     </>
   )
