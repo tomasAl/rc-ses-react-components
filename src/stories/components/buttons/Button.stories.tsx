@@ -23,9 +23,7 @@ const meta = {
         labels: variantOptions,
       },
       table: {
-        defaultValue: {
-          summary: String(Button.defaultProps.variant),
-        },
+        defaultValue: {},
       },
     },
     color: {
@@ -36,9 +34,7 @@ const meta = {
         labels: colorOptions,
       },
       table: {
-        defaultValue: {
-          summary: String(Button.defaultProps.color),
-        },
+        defaultValue: {},
       },
     },
     disabled: {
@@ -46,16 +42,13 @@ const meta = {
         type: 'boolean',
       },
       table: {
-        defaultValue: {
-          summary: String(Button.defaultProps.disabled),
-        },
+        defaultValue: {},
       },
     },
   },
   tags: ['autodocs'],
   args: {
     children: 'Button',
-    ...Button.defaultProps,
     onClick: fn(),
   },
 } satisfies Meta<typeof Button>
