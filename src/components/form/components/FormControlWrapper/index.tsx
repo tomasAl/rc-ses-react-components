@@ -9,6 +9,7 @@ type Props = {
   id: string
   label?: string
   labelSubtitle?: React.ReactNode
+  labelOnTop?: boolean
 }
 
 function RcSesFormControlWrapper({
@@ -19,23 +20,24 @@ function RcSesFormControlWrapper({
   id,
   label = undefined,
   labelSubtitle = undefined,
+  labelOnTop = false,
 }: Props) {
   return (
     <FormControl sx={{ my: 1, width: '100%' }} className={className}>
       <Box
         className='rc-ses-form-control-wrapper'
         sx={{
-          alignItems: 'center',
+          alignItems: { xs: 'stretch', sm: labelOnTop ? 'stretch' : 'center' },
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
+          flexDirection: { xs: 'column', sm: labelOnTop ? 'column' : 'row' },
           width: '100%',
         }}
       >
         <FormLabel
           sx={{
-            flex: { xs: '0 0 0%', sm: '0 0 273px' },
-            marginBottom: { xs: '.25rem', sm: '0' },
-            textAlign: { xs: 'left', sm: 'right' },
+            flex: { xs: '0 0 0%', sm: labelOnTop ? '0 0 0%' : '0 0 273px' },
+            marginBottom: { xs: '.25rem', sm: labelOnTop ? '.25rem' : '0' },
+            textAlign: { xs: 'left', sm: labelOnTop ? 'left' : 'right' },
             pr: 3,
           }}
         >
@@ -50,7 +52,7 @@ function RcSesFormControlWrapper({
         </Box>
       </Box>
 
-      <Box sx={{ flex: '1 1 0%', ml: { sm: '273px' } }}>
+      <Box sx={{ flex: '1 1 0%', ml: { sm: labelOnTop ? 0 : '273px' } }}>
         {!!description && (
           <FormHelperText sx={{ mx: 0, mt: '0.2rem' }}>{description}</FormHelperText>
         )}
