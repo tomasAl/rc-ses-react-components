@@ -98,6 +98,7 @@ function RcSesNumberStepper(props: Props) {
     step,
     ...fieldProps
   } = props
+
   // eslint-disable-next-line react/destructuring-assignment
   const id = props.id ?? crypto.randomUUID()
 
