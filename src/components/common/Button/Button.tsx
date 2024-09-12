@@ -8,7 +8,7 @@ const defaultProps = {
   variant: 'primary' as ButtonProps['variant'],
 }
 
-function Button(props: ButtonProps) {
+function RcSesButton(props: ButtonProps) {
   const { children, ...rest } = props
 
   return (
@@ -18,4 +18,4 @@ function Button(props: ButtonProps) {
   )
 }
 
-export default Button
+export default RcSesButton

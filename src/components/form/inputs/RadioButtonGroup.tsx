@@ -1,5 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { FormControlLabel, Radio, RadioGroup, styled } from '@mui/material'
+import {
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  RadioGroupProps,
+  styled,
+} from '@mui/material'
 import { UseControllerProps, useController } from 'react-hook-form'
 
 import palette from '@/theme/palette'
@@ -13,27 +19,48 @@ export type RadioOption = {
   value: string
 }
 
-type Props = Partial<RcSesFormControlWrapperProps> &
-  UseControllerProps<any, any> & {
+type TControllerProps = UseControllerProps<any, any>
+type ImmediateControllerProps = 'control' | 'rules' | 'name'
+
+type TFieldProps = RadioGroupProps
+type ImmediateFieldProps = 'name'
+
+type TWrapperProps = RcSesFormControlWrapperProps
+type ImmediateWrapperProps = 'label' | 'errors'
+
+type Props = Pick<TControllerProps, ImmediateControllerProps> &
+  Pick<TFieldProps, ImmediateFieldProps> &
+  Pick<TWrapperProps, ImmediateWrapperProps> & {
+    id?: string
     className?: string
     hideNativeRadio?: boolean
     options: Array<RadioOption>
     variant?: 'flat' | 'outlined' | 'filled'
+    slotProps?: {
+      controller?: Partial<Omit<TControllerProps, ImmediateControllerProps>>
+      wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
+    }
   }
+
+// type Props = Partial<RcSesFormControlWrapperProps> &
+//   UseControllerProps<any, any> & {
+//     className?: string
+//     hideNativeRadio?: boolean
+//     options: Array<RadioOption>
+//     variant?: 'flat' | 'outlined' | 'filled'
+//   }
 
 function UnstyledRcSesRadioButtonGroup(props: Props) {
   const {
     control,
     className,
-    description,
-    disabled,
     hideNativeRadio,
     errors,
     label,
-    labelSubtitle,
     name,
     options,
     rules,
+    slotProps,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     variant = 'flat',
   } = props
@@ -49,12 +76,11 @@ function UnstyledRcSesRadioButtonGroup(props: Props) {
 
   return (
     <RcSesFormControlWrapper
-      className={className}
-      description={description}
-      errors={errors}
       id={id}
+      className={className}
       label={label}
-      labelSubtitle={labelSubtitle}
+      errors={errors}
+      {...slotProps?.wrapper}
     >
       <RadioGroup
         aria-labelledby={id}
@@ -63,7 +89,7 @@ function UnstyledRcSesRadioButtonGroup(props: Props) {
       >
         {options.map((option) => (
           <FormControlLabel
-            control={<Radio disabled={disabled} />}
+            control={<Radio />}
             id={id}
             key={option.label}
             label={option.label}

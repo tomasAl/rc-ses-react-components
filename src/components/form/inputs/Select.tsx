@@ -18,11 +18,28 @@ type Option = {
   value: string
 }
 
-type Props = Partial<RcSesFormControlWrapperProps> &
-  Pick<AutocompleteProps<Option | '', false, true, false>, 'onInputChange'> &
-  UseControllerProps<any, any> & {
+type TControllerProps = UseControllerProps<any, any>
+type ImmediateControllerProps = 'control' | 'rules' | 'name' | 'disabled'
+
+type TFieldProps = Pick<
+  AutocompleteProps<Option | '', false, true, false>,
+  'id' | 'onInputChange'
+>
+type ImmediateFieldProps = 'onInputChange'
+
+type TWrapperProps = RcSesFormControlWrapperProps
+type ImmediateWrapperProps = 'id' | 'label' | 'errors'
+
+type Props = Pick<TControllerProps, ImmediateControllerProps> &
+  Pick<TFieldProps, ImmediateFieldProps> &
+  Pick<TWrapperProps, ImmediateWrapperProps> & {
     options: (Option | '')[]
     loading?: boolean
+    slotProps?: {
+      controller?: Partial<Omit<TControllerProps, ImmediateControllerProps>>
+      field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
+    }
   }
 
 function RcSesSelect(props: Props) {
@@ -30,18 +47,16 @@ function RcSesSelect(props: Props) {
 
   const {
     control,
-    description,
-    disabled,
     errors,
     label,
-    labelSubtitle,
     loading,
-    name,
     onInputChange,
     options,
     rules,
+    slotProps,
     ...fieldProps
   } = props
+  const { disabled, name } = fieldProps
 
   // eslint-disable-next-line react/destructuring-assignment
   const id = props.id ?? crypto.randomUUID()
@@ -70,14 +85,13 @@ function RcSesSelect(props: Props) {
 
   return (
     <RcSesFormControlWrapper
-      description={description}
-      errors={errors}
       id={id}
       label={label}
-      labelSubtitle={labelSubtitle}
+      errors={errors}
+      {...slotProps?.wrapper}
     >
       <Autocomplete
-        id={fieldProps.id}
+        id={id}
         disableClearable
         disabled={disabled}
         value={resolvedValue}

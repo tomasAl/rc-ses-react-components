@@ -21,19 +21,35 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 })
 
-type Props = Partial<RcSesFormControlWrapperProps> &
-  InputHTMLAttributes<HTMLInputElement> &
-  UseControllerProps<any, any>
+type TControllerProps = UseControllerProps<any, any>
+type ImmediateControllerProps = 'control' | 'rules'
+
+type TFieldProps = InputHTMLAttributes<HTMLInputElement>
+type ImmediateFieldProps = 'onChange' | 'onBlur' | 'disabled' | 'name'
+
+type TWrapperProps = RcSesFormControlWrapperProps
+type ImmediateWrapperProps = 'label' | 'errors'
+
+type Props = Pick<TControllerProps, ImmediateControllerProps> &
+  Pick<TFieldProps, ImmediateFieldProps> &
+  Pick<TWrapperProps, ImmediateWrapperProps> & {
+    id?: string
+    slotProps?: {
+      controller?: Partial<Omit<TControllerProps, ImmediateControllerProps>>
+      field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
+    }
+  }
 
 function RcSesFileUpload(props: Props) {
-  const { control, description, errors, label, labelSubtitle, labelOnTop, name, rules } =
-    props
+  const { control, errors, label, rules, slotProps, ...fieldProps } = props
+  const { name } = fieldProps
 
   // eslint-disable-next-line react/destructuring-assignment
   const id = props.id ?? crypto.randomUUID()
 
   const {
-    field: { value, onChange, ...fieldProps },
+    field: { value, onChange, ...fieldControlProps },
   } = useController({
     control,
     name,
@@ -44,12 +60,10 @@ function RcSesFileUpload(props: Props) {
 
   return (
     <RcSesFormControlWrapper
-      description={description}
-      errors={errors}
       id={id}
       label={label}
-      labelSubtitle={labelSubtitle}
-      labelOnTop={labelOnTop}
+      errors={errors}
+      {...slotProps?.wrapper}
     >
       <Button
         color='grey'
@@ -73,6 +87,7 @@ function RcSesFileUpload(props: Props) {
           id={id}
           type='file'
           {...fieldProps}
+          {...fieldControlProps}
           onChange={handleChange}
         />
 

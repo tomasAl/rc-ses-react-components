@@ -8,23 +8,34 @@ import RcSesFormControlWrapper, {
   RcSesFormControlWrapperProps,
 } from '../components/FormControlWrapper'
 
-type Props = Omit<MuiOutlinedTextFieldProps, 'variant'> &
-  Partial<RcSesFormControlWrapperProps>
+type TFieldProps = Omit<MuiOutlinedTextFieldProps, 'variant'>
+type ImmediateFieldProps = 'onChange' | 'onBlur' | 'disabled' | 'name' | 'ref'
+
+type TWrapperProps = RcSesFormControlWrapperProps
+type ImmediateWrapperProps = 'label' | 'errors'
+
+type Props = Pick<TFieldProps, ImmediateFieldProps> &
+  Pick<TWrapperProps, ImmediateWrapperProps> & {
+    id?: string
+    slotProps?: {
+      field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
+    }
+  }
 
 const RcSesTextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { description, label, labelSubtitle, labelOnTop, ...inputProps } = props
+  const { errors, label, slotProps, ...fieldProps } = props
+
   const id = props.id ?? crypto.randomUUID()
 
   return (
     <RcSesFormControlWrapper
-      description={description}
-      errors={props.errors}
       id={id}
       label={label}
-      labelSubtitle={labelSubtitle}
-      labelOnTop={labelOnTop}
+      errors={errors}
+      {...slotProps?.wrapper}
     >
-      <TextField {...inputProps} inputRef={ref} id={id} fullWidth />
+      <TextField {...fieldProps} inputRef={ref} id={id} fullWidth {...slotProps?.field} />
     </RcSesFormControlWrapper>
   )
 })

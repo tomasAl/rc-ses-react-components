@@ -19,32 +19,53 @@ type ModalComponentProps = {
   onClose: () => void
 }
 
-type Props = {
-  slotProps: {
-    Controller: UseControllerProps<any, any>
-    FormControlWrapper: Omit<RcSesFormControlWrapperProps, 'id' | 'children'>
-    TextField: Omit<OutlinedTextFieldProps, 'variant'>
+type TControllerProps = UseControllerProps<any, any>
+type ImmediateControllerProps = 'control' | 'rules' | 'disabled' | 'name'
+
+type TFieldProps = Omit<OutlinedTextFieldProps, 'variant'>
+type ImmediateFieldProps = never
+
+type TWrapperProps = RcSesFormControlWrapperProps
+type ImmediateWrapperProps = 'id' | 'label' | 'errors'
+
+type Props = Pick<TControllerProps, ImmediateControllerProps> &
+  Pick<TFieldProps, ImmediateFieldProps> &
+  Pick<TWrapperProps, ImmediateWrapperProps> & {
+    ModalComponent: React.JSXElementConstructor<ModalComponentProps>
+    slotProps?: {
+      controller?: Partial<Omit<TControllerProps, ImmediateControllerProps>>
+      field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
+    }
   }
-  ModalComponent: React.JSXElementConstructor<ModalComponentProps>
-}
 
 const RcSesSearchableField = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { slotProps, ModalComponent } = props
+  const { control, errors, label, ModalComponent, rules, slotProps, ...fieldProps } =
+    props
+  const { name } = fieldProps
 
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
-  const id = slotProps.TextField.id ?? crypto.randomUUID()
+  const id = props.id ?? crypto.randomUUID()
 
   const {
     field: { onChange, value },
   } = useController({
-    ...slotProps.Controller,
+    control,
+    name,
+    rules,
     shouldUnregister: true,
+    ...slotProps?.controller,
   })
 
   return (
     <>
-      <RcSesFormControlWrapper id={id} {...slotProps.FormControlWrapper}>
+      <RcSesFormControlWrapper
+        id={id}
+        label={label}
+        errors={errors}
+        {...slotProps?.wrapper}
+      >
         <TextField
           inputRef={ref}
           id={id}
@@ -69,7 +90,7 @@ const RcSesSearchableField = forwardRef<HTMLInputElement, Props>((props, ref) =>
             sx: { cursor: 'pointer' },
           }}
           fullWidth
-          {...slotProps.TextField}
+          {...slotProps?.field}
           value={value}
           label={undefined}
         />

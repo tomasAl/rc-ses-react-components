@@ -52,18 +52,22 @@ function ServiceIssuanceForm() {
         control={control}
         rules={{ required: true }}
         label='RC padalinys'
-        description={
-          <>
-            Informacija apie{' '}
-            <a
-              href='https://www.registrucentras.lt/p/1218'
-              target='_blank'
-              rel='noreferrer'
-            >
-              RC padalinius
-            </a>
-          </>
-        }
+        slotProps={{
+          wrapper: {
+            description: (
+              <>
+                Informacija apie{' '}
+                <a
+                  href='https://www.registrucentras.lt/p/1218'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  RC padalinius
+                </a>
+              </>
+            ),
+          },
+        }}
         errors={errors?.rcBranch}
         options={[
           {

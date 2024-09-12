@@ -29,31 +29,43 @@ const StyledFormControlLabel = styled(FormControlLabel)({
   },
 })
 
-type Props = MuiCheckboxProps &
-  Partial<RcSesFormControlWrapperProps> & {
+type TFieldProps = MuiCheckboxProps
+type ImmediateFieldProps = 'onChange' | 'onBlur' | 'disabled' | 'name' | 'ref'
+
+type TWrapperProps = RcSesFormControlWrapperProps
+type ImmediateWrapperProps = 'label' | 'errors'
+
+type Props = Pick<TFieldProps, ImmediateFieldProps> &
+  Pick<TWrapperProps, ImmediateWrapperProps> & {
+    id?: string
     children: React.ReactNode
+    slotProps?: {
+      field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
+    }
   }
 
 const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { children, description, label, labelSubtitle, ...checkboxProps } = props
+  const { children, errors, label, slotProps, ...fieldProps } = props
+
   const id = props.id ?? crypto.randomUUID()
 
   return (
     <RcSesFormControlWrapper
-      description={description}
-      errors={props.errors}
       id={id}
       label={label}
-      labelSubtitle={labelSubtitle}
+      errors={errors}
+      {...slotProps?.wrapper}
     >
       <StyledFormControlLabel
         control={
           <MuiCheckbox
-            {...checkboxProps}
+            icon={<CheckUncheckedBoldIcon />}
+            {...fieldProps}
             checkedIcon={<CheckBoldIcon />}
             disableRipple
-            icon={<CheckUncheckedBoldIcon />}
             inputRef={ref}
+            {...slotProps?.field}
           />
         }
         label={children}

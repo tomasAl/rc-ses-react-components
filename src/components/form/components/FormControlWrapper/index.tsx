@@ -1,15 +1,18 @@
 import { Box, FormControl, FormHelperText, FormLabel } from '@mui/material'
 import { FieldError } from 'react-hook-form'
 
+import FieldSuffix from './components/FieldSuffix'
+
 type Props = {
   children: React.ReactNode
   className?: string
   description?: React.ReactNode
   errors?: FieldError | undefined
   id: string
-  label?: string
+  label?: React.ReactNode
   labelSubtitle?: React.ReactNode
   labelOnTop?: boolean
+  fieldSuffix?: React.ReactNode
 }
 
 function RcSesFormControlWrapper({
@@ -21,6 +24,7 @@ function RcSesFormControlWrapper({
   label = undefined,
   labelSubtitle = undefined,
   labelOnTop = false,
+  fieldSuffix = undefined,
 }: Props) {
   return (
     <FormControl sx={{ my: 1, width: '100%' }} className={className}>
@@ -47,8 +51,12 @@ function RcSesFormControlWrapper({
           )}
         </FormLabel>
 
-        <Box sx={{ flex: '1 1 0%' }} className='rc-ses-form-field-wrapper'>
+        <Box
+          sx={{ flex: '1 1 0%', position: 'relative' }}
+          className='rc-ses-form-field-wrapper'
+        >
           {children}
+          <FieldSuffix>{fieldSuffix}</FieldSuffix>
         </Box>
       </Box>
 

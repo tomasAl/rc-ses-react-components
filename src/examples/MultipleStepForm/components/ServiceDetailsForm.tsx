@@ -148,8 +148,12 @@ function ServiceDetailsForm() {
         displayStepperControls
         errors={errors?.numberOfCopies}
         label='Egzempliorių skaičius'
-        labelSubtitle='(neprivaloma)'
         rules={{ required: false, min: 0, max: 10 }}
+        slotProps={{
+          wrapper: {
+            labelSubtitle: '(neprivaloma)',
+          },
+        }}
       />
     </form>
   )

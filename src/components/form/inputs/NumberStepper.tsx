@@ -74,30 +74,46 @@ function ArrowButton({ onClick, disabled, direction }: ArrowButtonProps) {
   )
 }
 
-type Props = Partial<RcSesFormControlWrapperProps> &
-  OutlinedInputProps &
-  UseControllerProps<any, any> & {
+type TControllerProps = UseControllerProps<any, any>
+type ImmediateControllerProps = 'control' | 'rules'
+
+type TFieldProps = OutlinedInputProps
+type ImmediateFieldProps = 'onChange' | 'onBlur' | 'disabled' | 'name'
+
+type TWrapperProps = RcSesFormControlWrapperProps
+type ImmediateWrapperProps = 'label' | 'errors'
+
+type Props = Pick<TControllerProps, ImmediateControllerProps> &
+  Pick<TFieldProps, ImmediateFieldProps> &
+  Pick<TWrapperProps, ImmediateWrapperProps> & {
+    id?: string
     displayStepperControls?: boolean
     min?: string | number
     max?: string | number
     step?: string | number
+    slotProps?: {
+      controller?: Partial<Omit<TControllerProps, ImmediateControllerProps>>
+      field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
+    }
   }
+
 function RcSesNumberStepper(props: Props) {
   const [buttonState, setButtonState] = useState<[boolean, boolean]>([true, true])
 
   const {
     control,
-    description,
-    disabled,
     displayStepperControls,
     errors,
     label,
-    labelSubtitle,
-    name,
+    max,
+    min,
     rules,
+    slotProps,
     step,
     ...fieldProps
   } = props
+  const { disabled, name } = fieldProps
 
   // eslint-disable-next-line react/destructuring-assignment
   const id = props.id ?? crypto.randomUUID()
@@ -137,11 +153,10 @@ function RcSesNumberStepper(props: Props) {
 
   return (
     <RcSesFormControlWrapper
-      description={description}
-      errors={errors}
       id={id}
       label={label}
-      labelSubtitle={labelSubtitle}
+      errors={errors}
+      {...slotProps?.wrapper}
     >
       <NumberInput
         inputProps={{

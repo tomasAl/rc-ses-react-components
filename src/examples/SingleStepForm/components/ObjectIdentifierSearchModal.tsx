@@ -91,45 +91,45 @@ function ObjectIdentifierSearchModal({ open, onSubmit, onClose }: Props) {
             <Grid item xs={12} md={6}>
               <RcSesTextField
                 label='Miestas'
-                labelOnTop
                 errors={errors?.city}
                 {...register('city', { required: true })}
+                slotProps={{ wrapper: { labelOnTop: true } }}
               />
             </Grid>
 
             <Grid item xs={12} md={6}>
               <RcSesTextField
                 label='Gatvė'
-                labelOnTop
                 errors={errors?.street}
                 {...register('street', { required: true })}
+                slotProps={{ wrapper: { labelOnTop: true } }}
               />
             </Grid>
 
             <Grid item xs={12} md={4}>
               <RcSesTextField
                 label='Pastato nr.'
-                labelOnTop
                 errors={errors?.addressNo}
                 {...register('addressNo', { required: true })}
+                slotProps={{ wrapper: { labelOnTop: true } }}
               />
             </Grid>
 
             <Grid item xs={12} md={4}>
               <RcSesTextField
                 label='Korpuso nr.'
-                labelOnTop
                 errors={errors?.housingNo}
                 {...register('housingNo', { required: true })}
+                slotProps={{ wrapper: { labelOnTop: true } }}
               />
             </Grid>
 
             <Grid item xs={12} md={4}>
               <RcSesTextField
                 label='Patalpos nr.'
-                labelOnTop
                 errors={errors?.aptNo}
                 {...register('aptNo', { required: true })}
+                slotProps={{ wrapper: { labelOnTop: true } }}
               />
             </Grid>
           </Grid>

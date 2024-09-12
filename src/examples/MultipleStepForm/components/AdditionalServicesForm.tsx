@@ -18,6 +18,7 @@ function AdditionalServicesForm() {
 
   return (
     <RcSesTextField
+      id='serviceName'
       label='Paslaugos pavadinimas'
       errors={errors?.additionalServices}
       {...register('additionalServices', { required: true, disabled: true })}

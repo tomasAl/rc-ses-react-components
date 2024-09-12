@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 
 import RcSesAccordion from '@/components/common/Accordion'
 import useAccordionController from '@/components/common/Accordion/hooks/useAccordionController'
+import RcSesButtonWithPopover from '@/components/common/Button/RcSesButtonWithPopover'
 import RcSesCheckbox from '@/components/form/inputs/Checkbox'
 import RcSesDatepicker from '@/components/form/inputs/Datepicker'
 import RcSesFileUpload from '@/components/form/inputs/FileUpload'
@@ -78,26 +79,36 @@ function SingleStepForm() {
         <RcSesAccordion id='form' controller={accordionController}>
           <form onSubmit={handleSubmit(console.debug)} noValidate>
             <RcSesTextField
-              label='Trumpas tekstas'
+              label={
+                <>
+                  Trumpas tekstas{' '}
+                  <RcSesButtonWithPopover
+                    popoverHeader='Paaiškinanti antraštė'
+                    popoverContent="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+                  />
+                </>
+              }
               errors={errors?.text}
               {...register('text', { required: true })}
+              slotProps={{
+                wrapper: {
+                  fieldSuffix: (
+                    <RcSesButtonWithPopover
+                      popoverHeader='Paaiškinanti antraštė'
+                      popoverContent="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+                    />
+                  ),
+                },
+              }}
             />
 
             <RcSesSearchableField
-              slotProps={{
-                Controller: {
-                  control,
-                  name: 'searchable',
-                  rules: { required: true },
-                },
-                FormControlWrapper: {
-                  errors: errors?.searchable,
-                  label: 'Unikalus daikto Nr.',
-                },
-                TextField: {
-                  id: 'searchable',
-                },
-              }}
+              control={control}
+              id='searchable'
+              errors={errors?.searchable}
+              label='Unikalus daikto Nr.'
+              name='searchable'
+              rules={{ required: true }}
               ModalComponent={ObjectIdentifierSearchModal}
             />
 
