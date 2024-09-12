@@ -1,12 +1,4 @@
-import {
-  Button,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Stack,
-  Typography,
-} from '@mui/material'
+import { Button, Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 import ServiceHeader from './components/layout/ServiceHeader'

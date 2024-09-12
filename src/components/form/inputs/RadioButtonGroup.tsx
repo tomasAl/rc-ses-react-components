@@ -21,7 +21,7 @@ type Props = Partial<RcSesFormControlWrapperProps> &
     variant?: 'flat' | 'outlined' | 'filled'
   }
 
-function RcSesRadioButtonGroup(props: Props) {
+function UnstyledRcSesRadioButtonGroup(props: Props) {
   const {
     control,
     className,
@@ -76,7 +76,7 @@ function RcSesRadioButtonGroup(props: Props) {
   )
 }
 
-const StyledRcSesRadioButtonGroup = styled(RcSesRadioButtonGroup)((props) => ({
+const RcSesRadioButtonGroup = styled(UnstyledRcSesRadioButtonGroup)((props) => ({
   '.rc-ses-form-field-wrapper': {
     backgroundColor: props.variant === 'filled' ? palette.grey['100'] : 'transparent',
     borderColor: props.variant === 'outlined' ? palette.grey['500'] : 'transparent',
@@ -88,4 +88,4 @@ const StyledRcSesRadioButtonGroup = styled(RcSesRadioButtonGroup)((props) => ({
   },
 }))
 
-export default StyledRcSesRadioButtonGroup
+export default RcSesRadioButtonGroup

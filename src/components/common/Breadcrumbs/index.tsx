@@ -7,7 +7,7 @@ type Props = {
   path: BreadcrumbItem[]
 }
 
-function Breadcrumbs({ path }: Props) {
+function RcSesBreadcrumbs({ path }: Props) {
   return (
     <MuiBreadcrumbs aria-label='breadcrumb'>
       <Link underline='hover' color='inherit' href='/'>
@@ -22,4 +22,4 @@ function Breadcrumbs({ path }: Props) {
   )
 }
 
-export default Breadcrumbs
+export default RcSesBreadcrumbs

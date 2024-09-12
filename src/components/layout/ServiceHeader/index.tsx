@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Box, Container, Typography } from '@mui/material'
 import { ComponentProps } from 'react'
 
-import Breadcrumbs from '@/components/common/Breadcrumbs'
+import RcSesBreadcrumbs from '@/components/common/Breadcrumbs'
 import theme from '@/theme/light'
 import Colors from '@/theme/palette'
 
@@ -16,7 +16,7 @@ const StyledDescriptionBox = styled(Box)`
 `
 
 type Props = {
-  breadcrumbsProps: ComponentProps<typeof Breadcrumbs>
+  breadcrumbsProps: ComponentProps<typeof RcSesBreadcrumbs>
   children: React.ReactNode
   title: string
 }
@@ -34,7 +34,7 @@ function ServiceHeader({ breadcrumbsProps, children, title }: Props) {
         }}
       >
         <Box sx={{ mb: { xs: '.875rem', md: '.375rem' } }}>
-          <Breadcrumbs {...breadcrumbsProps} />
+          <RcSesBreadcrumbs {...breadcrumbsProps} />
         </Box>
 
         <Typography variant='h1' sx={{ mb: { xs: '.25rem', md: '.5rem' } }}>
