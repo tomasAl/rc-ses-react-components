@@ -24,6 +24,7 @@ import MuiFormHelperText from '@/theme/light/MuiFormHelperText'
 import MuiFormLabel from '@/theme/light/MuiFormLabel'
 import MuiInputBase from '@/theme/light/MuiInputBase'
 import MuiPickersLayout from '@/theme/light/MuiPickersLayout'
+import MuiPopover from '@/theme/light/MuiPopover'
 import MuiRadio from '@/theme/light/MuiRadio'
 import MuiSelect from '@/theme/light/MuiSelect'
 import MuiStepper from '@/theme/light/MuiStepper'
@@ -57,6 +58,7 @@ const theme = createTheme(themePalette, ltLT, {
     MuiFormLabel,
     MuiInputBase,
     MuiPickersLayout,
+    MuiPopover,
     MuiRadio,
     MuiSelect,
     MuiStepper,
