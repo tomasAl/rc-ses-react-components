@@ -48,7 +48,6 @@ const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
         control={
           <MuiCheckbox
             checkedIcon={<CheckBoldIcon />}
-            className='MuiError'
             icon={<CheckUncheckedBoldIcon />}
             {...fieldProps}
             {...slotProps?.field}
