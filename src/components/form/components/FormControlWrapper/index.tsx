@@ -30,7 +30,7 @@ function RcSesFormControlWrapper({
   labelOnTop = false,
 }: Props) {
   return (
-    <FormControl sx={{ my: 1, width: '100%' }} className={className}>
+    <FormControl className={className} error={!!errors} sx={{ my: 1, width: '100%' }}>
       <Box
         className='rc-ses-form-control-wrapper'
         sx={{
@@ -89,7 +89,10 @@ function RcSesFormControlWrapper({
       </Box>
 
       <Box
-        sx={{ flex: '1 1 0%', ml: { sm: labelOnTop ? 0 : formControlDesktopLabelWidth } }}
+        sx={{
+          flex: '1 1 0%',
+          ml: { sm: labelOnTop || hideLabel ? 0 : formControlDesktopLabelWidth },
+        }}
       >
         {!!description && (
           <FormHelperText sx={{ mx: 0, mt: '0.2rem' }}>{description}</FormHelperText>

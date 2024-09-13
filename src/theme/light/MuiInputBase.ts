@@ -24,10 +24,24 @@ const MuiInputBase: Components['MuiInputBase'] = {
         borderColor: palette.grey['600'],
       },
 
+      '&.Mui-error': {
+        '.MuiOutlinedInput-notchedOutline': {
+          borderColor: `${palette.error['600']} !important`,
+        },
+      },
+
       '&.Mui-focused': {
         '.MuiOutlinedInput-notchedOutline': {
           borderColor: `${palette.grey['900']} !important`,
           boxShadow: `0px 0px 0px 3px rgba(${decomposeColor(palette.grey['900']).values}, .2)`,
+        },
+
+        '&.Mui-error': {
+          '.MuiOutlinedInput-notchedOutline': {
+            borderColor: `${palette.error['600']} !important`,
+            borderWidth: '.125rem',
+            boxShadow: `0px 0px 0px 3px rgba(${decomposeColor(palette.error['600']).values}, .2)`,
+          },
         },
       },
 

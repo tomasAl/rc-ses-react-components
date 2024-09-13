@@ -12,7 +12,7 @@ import RcSesFormControlWrapper, {
 } from '../components/FormControlWrapper'
 
 const NumberInput = styled(OutlinedInput)({
-  paddingRight: 0,
+  paddingRight: '0 !important',
 
   'input[type=number]': {
     MozAppearance: 'textfield',
@@ -59,14 +59,19 @@ type ArrowButtonProps = {
 function ArrowButton({ onClick, disabled, direction }: ArrowButtonProps) {
   return (
     <Button
+      color='grey'
       onClick={onClick}
       disabled={disabled}
       variant='outlined'
       sx={{
         color: 'grey.900',
         borderRadius: 0,
+        borderWidth: '0 0 0 1px',
         minWidth: '2.75rem',
         padding: '.8125rem !important',
+        '&::before': {
+          content: 'unset',
+        },
       }}
     >
       {direction === 'plus' ? <PlusBoldIcon /> : <MinusBoldIcon />}
@@ -182,6 +187,7 @@ function RcSesNumberStepper(props: Props) {
             </>
           )
         }
+        error={!!errors}
         onChange={handleInputOnChange}
         {...fieldProps}
       />

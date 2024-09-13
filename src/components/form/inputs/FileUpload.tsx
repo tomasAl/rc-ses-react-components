@@ -66,7 +66,7 @@ function RcSesFileUpload(props: Props) {
       {...slotProps?.wrapper}
     >
       <Button
-        color='grey'
+        color={errors ? 'error' : 'grey'}
         component='label'
         fullWidth
         role={undefined}
@@ -102,6 +102,7 @@ function RcSesFileUpload(props: Props) {
             borderColor: palette.grey['500'],
             borderLeftStyle: 'solid',
             borderLeftWidth: '1px',
+            color: palette.grey['900'],
             display: 'flex',
             height: '42px',
             px: 2,

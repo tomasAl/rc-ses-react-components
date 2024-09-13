@@ -14,6 +14,10 @@ const MuiFormLabel: Components['MuiFormLabel'] = {
         color: 'inherit',
       },
 
+      '&.Mui-error': {
+        color: 'inherit',
+      },
+
       '.rc-ses-label-subtitle': {
         color: palette.grey['700'],
         display: 'block',

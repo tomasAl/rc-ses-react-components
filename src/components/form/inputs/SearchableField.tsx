@@ -89,6 +89,7 @@ const RcSesSearchableField = forwardRef<HTMLInputElement, Props>((props, ref) =>
             ),
             sx: { cursor: 'pointer' },
           }}
+          error={!!errors}
           fullWidth
           {...slotProps?.field}
           value={value}

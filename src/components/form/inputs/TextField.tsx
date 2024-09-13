@@ -35,7 +35,14 @@ const RcSesTextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
       errors={errors}
       {...slotProps?.wrapper}
     >
-      <TextField {...fieldProps} inputRef={ref} id={id} fullWidth {...slotProps?.field} />
+      <TextField
+        {...fieldProps}
+        inputRef={ref}
+        id={id}
+        fullWidth
+        {...slotProps?.field}
+        error={!!errors}
+      />
     </RcSesFormControlWrapper>
   )
 })

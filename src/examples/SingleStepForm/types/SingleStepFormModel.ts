@@ -5,7 +5,7 @@ type SingleStepFormModel = {
   searchable: string
   date: string | null
   dateInterval: string
-  countable: number
+  countable: number | ''
   agreement: string
   fileUpload: string
 

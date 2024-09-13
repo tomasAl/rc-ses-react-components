@@ -47,12 +47,13 @@ const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
       <FormControlLabel
         control={
           <MuiCheckbox
+            checkedIcon={<CheckBoldIcon />}
+            className='MuiError'
             icon={<CheckUncheckedBoldIcon />}
             {...fieldProps}
-            checkedIcon={<CheckBoldIcon />}
+            {...slotProps?.field}
             disableRipple
             inputRef={ref}
-            {...slotProps?.field}
           />
         }
         label={children}
