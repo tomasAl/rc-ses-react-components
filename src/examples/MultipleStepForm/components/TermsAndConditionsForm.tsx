@@ -1,7 +1,6 @@
-import { Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 
-import RcSesCheckboxInput from '@/components/form/inputs/CheckboxInput'
+import RcSesCheckbox from '@/components/form/inputs/Checkbox'
 
 type FormModel = {
   agreement: boolean
@@ -22,20 +21,34 @@ function TermsAndConditionsForm() {
   return (
     // eslint-disable-next-line no-console
     <form onSubmit={handleSubmit(console.debug)} noValidate>
-      <RcSesCheckboxInput
+      <RcSesCheckbox
+        id='agreement'
         errors={errors?.agreement}
         {...register('agreement', { required: true })}
+        slotProps={{
+          label: {
+            slotProps: {
+              typography: {
+                fontWeight: 600,
+                lineHeight: '1.3125rem',
+                variant: 'body1',
+              },
+            },
+          },
+          wrapper: {
+            hideLabel: true,
+          },
+        }}
+        variant='flat'
       >
-        <Typography sx={{ fontWeight: 600, lineHeight: '1.3125rem !important' }}>
-          Užsakydamas darbus esu susipažinęs su{' '}
-          <a href='https://www.registrucentras.lt/p/775' target='_blank' rel='noreferrer'>
-            darbų atlikimo ir atlyginimo tvarka
-          </a>{' '}
-          ir įsipareigoju apmokėti už užsakytus darbus. Esu informuotas, kad per nurodytą
-          terminą neapmokėjus apskaičiuoto mokesčio, darbų užsakymas per pasiriktą terminą
-          nebus įvykdytas.
-        </Typography>
-      </RcSesCheckboxInput>
+        Užsakydamas darbus esu susipažinęs su{' '}
+        <a href='https://www.registrucentras.lt/p/775' target='_blank' rel='noreferrer'>
+          darbų atlikimo ir atlyginimo tvarka
+        </a>{' '}
+        ir įsipareigoju apmokėti už užsakytus darbus. Esu informuotas, kad per nurodytą
+        terminą neapmokėjus apskaičiuoto mokesčio, darbų užsakymas per pasiriktą terminą
+        nebus įvykdytas.
+      </RcSesCheckbox>
     </form>
   )
 }

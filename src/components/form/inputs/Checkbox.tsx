@@ -1,8 +1,8 @@
 import {
   FormControlLabel,
+  FormControlLabelProps,
   Checkbox as MuiCheckbox,
   CheckboxProps as MuiCheckboxProps,
-  styled,
 } from '@mui/material'
 import { forwardRef } from 'react'
 
@@ -14,21 +14,6 @@ import RcSesFormControlWrapper, {
   RcSesFormControlWrapperProps,
 } from '../components/FormControlWrapper'
 
-const StyledFormControlLabel = styled(FormControlLabel)({
-  backgroundColor: palette.grey['50'],
-  borderColor: palette.grey['500'],
-  borderStyle: 'solid',
-  borderWidth: '1px',
-  borderRadius: '.25rem',
-  margin: 0,
-  padding: '1rem 1.25rem',
-
-  '.MuiTypography-root': {
-    fontSize: '.875rem !important',
-    lineHeight: '1.25rem !important',
-  },
-})
-
 type TFieldProps = MuiCheckboxProps
 type ImmediateFieldProps = 'onChange' | 'onBlur' | 'disabled' | 'name' | 'ref'
 
@@ -39,14 +24,16 @@ type Props = Pick<TFieldProps, ImmediateFieldProps> &
   Pick<TWrapperProps, ImmediateWrapperProps> & {
     id?: string
     children: React.ReactNode
+    variant?: 'flat' | 'outlined'
     slotProps?: {
       field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      label?: Partial<FormControlLabelProps>
       wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
     }
   }
 
 const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { children, errors, label, slotProps, ...fieldProps } = props
+  const { children, errors, label, slotProps, variant, ...fieldProps } = props
 
   const id = props.id ?? crypto.randomUUID()
 
@@ -57,7 +44,7 @@ const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
       errors={errors}
       {...slotProps?.wrapper}
     >
-      <StyledFormControlLabel
+      <FormControlLabel
         control={
           <MuiCheckbox
             icon={<CheckUncheckedBoldIcon />}
@@ -69,6 +56,29 @@ const RcSesCheckbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
           />
         }
         label={children}
+        {...slotProps?.label}
+        slotProps={{
+          typography: {
+            lineHeight: '1.25rem',
+            marginLeft: '.4375rem',
+            variant: 'body2',
+            ...slotProps?.label?.slotProps?.typography,
+          },
+        }}
+        sx={{
+          ...(!variant || variant === 'outlined'
+            ? {
+                backgroundColor: palette.grey['50'],
+                borderColor: palette.grey['500'],
+                borderStyle: 'solid',
+                borderWidth: '1px',
+                borderRadius: '.25rem',
+                margin: 0,
+                padding: '1rem 1.25rem 1rem .875rem',
+              }
+            : {}),
+          ...slotProps?.label?.sx,
+        }}
       />
     </RcSesFormControlWrapper>
   )

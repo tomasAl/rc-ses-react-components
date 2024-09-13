@@ -2,17 +2,19 @@ import { Box, FormControl, FormHelperText, FormLabel } from '@mui/material'
 import { FieldError } from 'react-hook-form'
 
 import FieldSuffix from './components/FieldSuffix'
+import { formControlDesktopLabelWidth } from './const/FormControlLayoutVariables'
 
 type Props = {
   children: React.ReactNode
   className?: string
   description?: React.ReactNode
   errors?: FieldError | undefined
+  fieldSuffix?: React.ReactNode
+  hideLabel?: boolean
   id: string
   label?: React.ReactNode
   labelSubtitle?: React.ReactNode
   labelOnTop?: boolean
-  fieldSuffix?: React.ReactNode
 }
 
 function RcSesFormControlWrapper({
@@ -20,11 +22,12 @@ function RcSesFormControlWrapper({
   className = undefined,
   description = undefined,
   errors = undefined,
+  fieldSuffix = undefined,
+  hideLabel = false,
   id,
   label = undefined,
   labelSubtitle = undefined,
   labelOnTop = false,
-  fieldSuffix = undefined,
 }: Props) {
   return (
     <FormControl sx={{ my: 1, width: '100%' }} className={className}>
@@ -37,28 +40,33 @@ function RcSesFormControlWrapper({
           width: '100%',
         }}
       >
-        <FormLabel
-          sx={{
-            flex: { xs: '0 0 0%', sm: labelOnTop ? '0 0 0%' : '0 0 273px' },
-            marginBottom: { xs: '.25rem', sm: labelOnTop ? '.25rem' : '0' },
-            textAlign: { xs: 'left', sm: labelOnTop ? 'left' : 'right' },
-            pr: 3,
-          }}
-        >
-          {label}{' '}
-          <FieldSuffix
+        {hideLabel !== true && (
+          <FormLabel
             sx={{
-              display: { xs: 'inline', md: 'none' },
-              verticalAlign: 'text-bottom',
-              svg: { height: '14px', width: '14px' },
+              flex: {
+                xs: '0 0 0%',
+                sm: labelOnTop ? '0 0 0%' : `0 0 ${formControlDesktopLabelWidth}`,
+              },
+              marginBottom: { xs: '.25rem', sm: labelOnTop ? '.25rem' : '0' },
+              textAlign: { xs: 'left', sm: labelOnTop ? 'left' : 'right' },
+              pr: 3,
             }}
           >
-            {fieldSuffix}
-          </FieldSuffix>
-          {!!labelSubtitle && (
-            <span className='rc-ses-label-subtitle'>{labelSubtitle}</span>
-          )}
-        </FormLabel>
+            {label}{' '}
+            <FieldSuffix
+              sx={{
+                display: { xs: 'inline', md: 'none' },
+                verticalAlign: 'text-bottom',
+                svg: { height: '14px', width: '14px' },
+              }}
+            >
+              {fieldSuffix}
+            </FieldSuffix>
+            {!!labelSubtitle && (
+              <span className='rc-ses-label-subtitle'>{labelSubtitle}</span>
+            )}
+          </FormLabel>
+        )}
 
         <Box
           sx={{ flex: '1 1 0%', position: 'relative' }}
@@ -80,7 +88,9 @@ function RcSesFormControlWrapper({
         </Box>
       </Box>
 
-      <Box sx={{ flex: '1 1 0%', ml: { sm: labelOnTop ? 0 : '273px' } }}>
+      <Box
+        sx={{ flex: '1 1 0%', ml: { sm: labelOnTop ? 0 : formControlDesktopLabelWidth } }}
+      >
         {!!description && (
           <FormHelperText sx={{ mx: 0, mt: '0.2rem' }}>{description}</FormHelperText>
         )}

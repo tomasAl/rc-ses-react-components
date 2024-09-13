@@ -7,14 +7,6 @@ const MuiFormControl: Components['MuiFormControl'] = {
   styleOverrides: {
     root: {
       '.MuiFormControlLabel-root': {
-        '.MuiCheckbox-root': {
-          '& + .MuiTypography-root': {
-            fontSize: '.9375rem',
-            lineHeight: '1.125rem',
-            marginLeft: '.4375rem',
-          },
-        },
-
         '&.Mui-error': {
           '.MuiCheckbox-root': {
             '.checkbox-stroke': {
