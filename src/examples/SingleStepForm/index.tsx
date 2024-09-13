@@ -24,6 +24,7 @@ function SingleStepForm() {
   const accordionController = useAccordionController({
     initialState: {
       form: {
+        canToggle: false,
         expanded: true,
         state: 'active',
         title: 'Paslaugos užsakymo forma',
@@ -86,7 +87,7 @@ function SingleStepForm() {
                 wrapper: {
                   fieldSuffix: (
                     <RcSesButtonWithPopover
-                      popoverHeader='Paaiškinanti antraštė'
+                      popoverHeader='Viską paaiškinanti antraštė'
                       popoverContent="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
                     />
                   ),
@@ -102,6 +103,13 @@ function SingleStepForm() {
               name='searchable'
               rules={{ required: true }}
               ModalComponent={ObjectIdentifierSearchModal}
+              slotProps={{
+                wrapper: {
+                  fieldSuffix: (
+                    <RcSesButtonWithPopover popoverContent="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard." />
+                  ),
+                },
+              }}
             />
 
             <RcSesSelect

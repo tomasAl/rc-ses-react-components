@@ -3,6 +3,8 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import { SyntheticEvent } from 'react'
 
+import CaretDownIcon from '@/assets/icons/CaretDownIcon'
+
 import useAccordionController from './hooks/useAccordionController'
 
 type Props = React.ComponentProps<typeof Accordion> & {
@@ -14,25 +16,30 @@ function RcSesAccordion(props: Props) {
   const { children, controller, id, onChange, ...accordionProps } = props
   const { toggleAccordion, state } = controller
 
-  const { defaultExpanded, disabled, expanded, title } =
+  const { canToggle, disabled, expanded, title } =
     id in state
       ? state[id]
-      : { defaultExpanded: undefined, disabled: false, expanded: false, title: '' }
+      : { canToggle: true, disabled: false, expanded: false, title: '' }
 
   const handleOnChange = (event: SyntheticEvent<Element, Event>, isExpanded: boolean) => {
+    if (canToggle === false) return
+
     toggleAccordion(id, isExpanded)
     if (onChange) onChange(event, isExpanded)
   }
 
   return (
     <Accordion
-      defaultExpanded={defaultExpanded}
-      disabled={disabled}
-      expanded={expanded}
+      disabled={disabled === true}
+      expanded={expanded === true}
       {...accordionProps}
       onChange={handleOnChange}
     >
-      <AccordionSummary aria-controls={`${id}-content`} id={`${id}-header`}>
+      <AccordionSummary
+        id={`${id}-header`}
+        aria-controls={`${id}-content`}
+        expandIcon={canToggle === false ? null : <CaretDownIcon />}
+      >
         {title}
       </AccordionSummary>
       <AccordionDetails>{children}</AccordionDetails>
