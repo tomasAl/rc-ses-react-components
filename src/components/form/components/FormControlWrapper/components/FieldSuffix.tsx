@@ -1,15 +1,14 @@
-import { Box } from '@mui/material'
+import { Box, SxProps, Theme } from '@mui/material'
 
 type Props = {
   children: React.ReactNode
+  sx?: SxProps<Theme>
 }
 
-function FieldSuffix({ children }: Props) {
+function FieldSuffix({ children, sx = undefined }: Props) {
   if (!children) return null
 
-  return (
-    <Box sx={{ position: 'absolute', left: '100%', ml: 1, top: '.5rem' }}>{children}</Box>
-  )
+  return <Box sx={sx}>{children}</Box>
 }
 
 export default FieldSuffix

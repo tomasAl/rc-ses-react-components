@@ -9,8 +9,8 @@ const MuiPopover: Components['MuiPopover'] = {
     slotProps: {
       paper: {
         sx: {
-          px: { xs: 1.5, md: 2.5 },
-          py: { xs: 1, md: 2 },
+          px: { xs: 1.75, md: 2.5 },
+          py: { xs: 1.5, md: 2 },
         },
       },
     },

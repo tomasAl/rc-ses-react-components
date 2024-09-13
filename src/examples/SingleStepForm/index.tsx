@@ -79,15 +79,7 @@ function SingleStepForm() {
         <RcSesAccordion id='form' controller={accordionController}>
           <form onSubmit={handleSubmit(console.debug)} noValidate>
             <RcSesTextField
-              label={
-                <>
-                  Trumpas tekstas{' '}
-                  <RcSesButtonWithPopover
-                    popoverHeader='Paaiškinanti antraštė'
-                    popoverContent="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
-                  />
-                </>
-              }
+              label='Trumpas tekstas'
               errors={errors?.text}
               {...register('text', { required: true })}
               slotProps={{
@@ -161,6 +153,27 @@ function SingleStepForm() {
               rules={{ required: true }}
               label='Failo įkėlimas'
               errors={errors?.fileUpload}
+              slotProps={{
+                wrapper: {
+                  labelSubtitle: 'Tinkami formatai: .doc, .xdoc, .pdf, .pages',
+                },
+              }}
+            />
+
+            <RcSesFileUpload
+              id='fileUpload2'
+              name='fileUpload'
+              control={control}
+              rules={{ required: true }}
+              label='Failo įkėlimas'
+              errors={errors?.fileUpload}
+              slotProps={{
+                wrapper: {
+                  fieldSuffix: (
+                    <RcSesButtonWithPopover popoverContent='Tinkami formatai: .doc, .xdoc, .pdf, .pages' />
+                  ),
+                },
+              }}
             />
 
             <Divider />

@@ -45,7 +45,16 @@ function RcSesFormControlWrapper({
             pr: 3,
           }}
         >
-          {label}
+          {label}{' '}
+          <FieldSuffix
+            sx={{
+              display: { xs: 'inline', md: 'none' },
+              verticalAlign: 'text-bottom',
+              svg: { height: '14px', width: '14px' },
+            }}
+          >
+            {fieldSuffix}
+          </FieldSuffix>
           {!!labelSubtitle && (
             <span className='rc-ses-label-subtitle'>{labelSubtitle}</span>
           )}
@@ -56,7 +65,18 @@ function RcSesFormControlWrapper({
           className='rc-ses-form-field-wrapper'
         >
           {children}
-          <FieldSuffix>{fieldSuffix}</FieldSuffix>
+          <FieldSuffix
+            sx={{
+              display: { xs: 'none', md: 'block' },
+              position: 'absolute',
+              left: '100%',
+              ml: 0.5,
+              top: '.5rem',
+              svg: { height: '18px', width: '18px' },
+            }}
+          >
+            {fieldSuffix}
+          </FieldSuffix>
         </Box>
       </Box>
 
