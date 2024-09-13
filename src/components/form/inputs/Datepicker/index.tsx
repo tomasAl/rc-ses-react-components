@@ -79,12 +79,8 @@ const RcSesDatepicker = forwardRef<HTMLInputElement, Props>((props, ref) => {
           openPickerIcon: CalendarBlankIcon,
         }}
         slotProps={{
-          actionBar: {
-            actions: ['cancel'],
-          },
-          inputAdornment: {
-            position: 'start',
-          },
+          actionBar: { actions: ['cancel'] },
+          inputAdornment: { position: 'start' },
           textField: { id, error: !!errors },
         }}
         value={modelValue}

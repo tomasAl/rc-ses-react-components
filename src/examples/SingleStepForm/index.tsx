@@ -162,9 +162,7 @@ function SingleStepForm() {
               label='Failo įkėlimas'
               errors={errors?.fileUpload}
               slotProps={{
-                wrapper: {
-                  labelSubtitle: 'Tinkami formatai: .doc, .xdoc, .pdf, .pages',
-                },
+                wrapper: { labelSubtitle: 'Tinkami formatai: .doc, .xdoc, .pdf, .pages' },
               }}
             />
 

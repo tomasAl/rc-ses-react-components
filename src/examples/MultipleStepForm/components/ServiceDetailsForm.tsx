@@ -149,11 +149,7 @@ function ServiceDetailsForm() {
         errors={errors?.numberOfCopies}
         label='Egzempliorių skaičius'
         rules={{ required: false, min: 0, max: 10 }}
-        slotProps={{
-          wrapper: {
-            labelSubtitle: '(neprivaloma)',
-          },
-        }}
+        slotProps={{ wrapper: { labelSubtitle: '(neprivaloma)' } }}
       />
     </form>
   )
