@@ -1,14 +1,17 @@
-import Alert from '@mui/material/Alert'
+import { Alert as MuiAlert, AlertProps as MuiAlertProps } from '@mui/material'
 
-type Props = React.ComponentProps<typeof Alert>
+const defaultProps: Partial<MuiAlertProps> = {
+  elevation: 0,
+  variant: 'outlined',
+}
 
-function RcSesAlert(props: Props) {
-  const { children, ...alertProps } = props
+function RcSesAlert(props: MuiAlertProps) {
+  const { children } = props
 
   return (
-    <Alert {...alertProps} closeText='Uždaryti'>
+    <MuiAlert {...defaultProps} {...props} closeText='Uždaryti'>
       {children}
-    </Alert>
+    </MuiAlert>
   )
 }
 

@@ -2,7 +2,7 @@ import { Card, Grid } from '@mui/material'
 
 import ArrowRightIcon from '@/assets/icons/ArrowRightIcon'
 import CaretLeftIcon from '@/assets/icons/CaretLeftIcon'
-import Button from '@/components/common/Button/Button'
+import Button from '@/components/common/Button'
 import palette from '@/theme/palette'
 
 function ServiceFormActions() {

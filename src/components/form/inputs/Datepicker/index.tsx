@@ -1,4 +1,3 @@
-import styled from '@emotion/styled'
 import { MuiPickersAdapterContext } from '@mui/x-date-pickers'
 import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker'
 import { fromZonedTime } from 'date-fns-tz'
@@ -19,13 +18,6 @@ type Props = Partial<RcSesFormControlWrapperProps> &
       datepicker?: DatePickerProps<Date, boolean>
     }
   }
-
-const StyledDatePicker = styled(DatePicker)({
-  '.MuiInputBase-input': {
-    paddingLeft: 0,
-    paddingRight: 0,
-  },
-})
 
 const RcSesDatepicker = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { control, description, errors, label, labelSubtitle, name, rules, slotProps } =
@@ -64,7 +56,7 @@ const RcSesDatepicker = forwardRef<HTMLInputElement, Props>((props, ref) => {
       description={description}
       errors={errors}
     >
-      <StyledDatePicker
+      <DatePicker
         inputRef={ref}
         dayOfWeekFormatter={(date: Date) =>
           dateAdapterContext?.utils?.format(date, 'weekdayShort').substring(0, 2) ?? ''
@@ -85,6 +77,13 @@ const RcSesDatepicker = forwardRef<HTMLInputElement, Props>((props, ref) => {
         }}
         value={modelValue}
         {...(slotProps?.datepicker ?? {})}
+        sx={{
+          '.MuiInputBase-input': {
+            paddingLeft: 0,
+            paddingRight: 0,
+          },
+          ...(slotProps?.datepicker?.sx ?? {}),
+        }}
       />
     </RcSesFormControlWrapper>
   )

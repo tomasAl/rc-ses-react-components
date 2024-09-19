@@ -1,15 +1,15 @@
+import type { ButtonProps as MuiButtonProps } from '@mui/material/Button'
 import { PopoverProps } from '@mui/material/Popover'
 import { useState } from 'react'
 
 import QuestionFillIcon from '@/assets/icons/QuestionFillIcon'
 import QuestionIcon from '@/assets/icons/QuestionIcon'
 import palette from '@/theme/palette'
-import { ButtonProps } from '@/types/buttons/ButtonProps'
 
+import RcSesButton from '.'
 import RcSesPopover from '../Popover'
-import RcSesButton from './Button'
 
-type Props = ButtonProps & {
+type Props = MuiButtonProps & {
   popoverHeader?: React.ReactNode
   popoverContent?: React.ReactNode
   slotProps?: {

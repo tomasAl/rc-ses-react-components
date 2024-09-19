@@ -23,18 +23,16 @@ type TControllerProps = UseControllerProps<any, any>
 type ImmediateControllerProps = 'control' | 'rules' | 'disabled' | 'name'
 
 type TFieldProps = Omit<OutlinedTextFieldProps, 'variant'>
-type ImmediateFieldProps = never
 
 type TWrapperProps = RcSesFormControlWrapperProps
 type ImmediateWrapperProps = 'id' | 'label' | 'errors'
 
 type Props = Pick<TControllerProps, ImmediateControllerProps> &
-  Pick<TFieldProps, ImmediateFieldProps> &
   Pick<TWrapperProps, ImmediateWrapperProps> & {
     ModalComponent: React.JSXElementConstructor<ModalComponentProps>
     slotProps?: {
       controller?: Partial<Omit<TControllerProps, ImmediateControllerProps>>
-      field?: Partial<Omit<TFieldProps, ImmediateFieldProps>>
+      field?: Partial<TFieldProps>
       wrapper?: Partial<Omit<TWrapperProps, ImmediateWrapperProps>>
     }
   }
