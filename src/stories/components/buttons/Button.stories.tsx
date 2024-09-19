@@ -1,11 +1,11 @@
+import type { ButtonProps as MuiButtonProps } from '@mui/material/Button'
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 
 import PlusBoldIcon from '@/assets/icons/PlusBoldIcon'
-import Button from '@/components/common/Button/Button'
-import { ButtonProps } from '@/types/buttons/ButtonProps'
+import Button from '@/components/common/Button'
 
-const variantOptions: Array<ButtonProps['variant']> = ['contained', 'outlined']
+const variantOptions: Array<MuiButtonProps['variant']> = ['contained', 'outlined']
 const colorOptions = ['primary', 'secondary', 'grey']
 
 const meta = {

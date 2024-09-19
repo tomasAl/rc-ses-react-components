@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 
 import RcSesAccordion from '@/components/common/Accordion'
 import useAccordionController from '@/components/common/Accordion/hooks/useAccordionController'
-import RcSesButtonWithPopover from '@/components/common/Button/RcSesButtonWithPopover'
+import RcSesButtonWithPopover from '@/components/common/Button/ButtonWithPopover'
 import RcSesCheckbox from '@/components/form/inputs/Checkbox'
 import RcSesDatepicker from '@/components/form/inputs/Datepicker'
 import RcSesFileUpload from '@/components/form/inputs/FileUpload'
