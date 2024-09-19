@@ -12,8 +12,9 @@ const MuiButton: Components['MuiButton'] = {
         color: palette.primary['600'],
         fontSize: '.875rem',
         fontWeight: 500,
-        lineHeight: '1rem',
-        padding: '.6875px .25rem',
+        height: '2.375rem',
+        lineHeight: '1.125rem',
+        padding: '.6875rem .25rem',
 
         '&.Mui-disabled': {
           opacity: 0.4,
