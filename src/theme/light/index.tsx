@@ -1,5 +1,5 @@
+import type {} from '@emotion/styled'
 import { createTheme } from '@mui/material'
-import type {} from '@mui/x-date-pickers/themeAugmentation'
 
 import { ltLT } from '@/i18n/@mui/x-date-pickers/ltLT'
 import MuiAccordion from '@/theme/light/MuiAccordion'
@@ -23,6 +23,7 @@ import MuiFormGroup from '@/theme/light/MuiFormGroup'
 import MuiFormHelperText from '@/theme/light/MuiFormHelperText'
 import MuiFormLabel from '@/theme/light/MuiFormLabel'
 import MuiInputBase from '@/theme/light/MuiInputBase'
+import MuiLinearProgress from '@/theme/light/MuiLinearProgress'
 import MuiPickersLayout from '@/theme/light/MuiPickersLayout'
 import MuiPopover from '@/theme/light/MuiPopover'
 import MuiRadio from '@/theme/light/MuiRadio'
@@ -33,6 +34,24 @@ import MuiTableCell from '@/theme/light/MuiTableCell'
 import MuiTextField from '@/theme/light/MuiTextField'
 import MuiTypography from '@/theme/light/MuiTypography'
 import themePalette from '@/theme/light/themePalette'
+
+declare module '@mui/material' {
+  interface ButtonPropsVariantOverrides {
+    link: true
+  }
+
+  interface ButtonPropsColorOverrides {
+    grey: any
+  }
+
+  interface RadioPropsColorOverrides {
+    grey: true
+  }
+
+  interface TabsPropsVariantOverrides {
+    grey: true
+  }
+}
 
 const theme = createTheme(themePalette, ltLT, {
   components: {
@@ -57,6 +76,7 @@ const theme = createTheme(themePalette, ltLT, {
     MuiFormHelperText,
     MuiFormLabel,
     MuiInputBase,
+    MuiLinearProgress,
     MuiPickersLayout,
     MuiPopover,
     MuiRadio,

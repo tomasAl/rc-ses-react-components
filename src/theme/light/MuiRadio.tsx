@@ -2,12 +2,6 @@ import { Components } from '@mui/material'
 
 import palette from '../palette'
 
-declare module '@mui/material' {
-  interface RadioPropsColorOverrides {
-    grey: true
-  }
-}
-
 const MuiRadio: Components['MuiRadio'] = {
   defaultProps: {
     checkedIcon: (

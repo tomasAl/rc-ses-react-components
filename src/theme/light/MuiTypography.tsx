@@ -1,22 +1,4 @@
 import { Components } from '@mui/material'
-import React from 'react'
-
-declare module '@mui/material/styles' {
-  interface TypographyVariants {
-    body: React.CSSProperties
-  }
-
-  // allow configuration using `createTheme`
-  interface TypographyVariantsOptions {
-    body?: React.CSSProperties
-  }
-}
-
-declare module '@mui/material/Typography' {
-  interface TypographyPropsVariantOverrides {
-    body: true
-  }
-}
 
 const MuiTypography: Components['MuiTypography'] = {
   styleOverrides: {

@@ -2,15 +2,6 @@ import { Components } from '@mui/material'
 
 import palette, { error, grey, primary, secondary, warning } from '../palette'
 
-declare module '@mui/material' {
-  interface ButtonPropsVariantOverrides {
-    link: true
-  }
-  interface ButtonPropsColorOverrides {
-    grey: any
-  }
-}
-
 const MuiButton: Components['MuiButton'] = {
   variants: [
     {
