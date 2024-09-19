@@ -1,7 +1,7 @@
 {
   "name": "@rc-ses/react-components",
   "author": "Codeopera, UAB",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RC SES React komponentų biblioteka",
   "type": "module",
   "private": true,
