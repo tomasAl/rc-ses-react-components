@@ -36,6 +36,24 @@ import MuiTypography from '@/theme/light/MuiTypography'
 import themePalette from '@/theme/light/themePalette'
 
 declare module '@mui/material' {
+  interface Palette {
+    grey: Palette['grey']
+  }
+
+  interface PaletteOptions {
+    grey?: PaletteOptions['grey']
+  }
+
+  interface AlertPropsColorOverrides {
+    grey: true
+  }
+
+  interface AlertClasses {
+    standardGrey: string
+    outlinedGrey: string
+    filledGrey: string
+  }
+
   interface ButtonPropsVariantOverrides {
     link: true
   }
