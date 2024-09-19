@@ -10,11 +10,12 @@ const MuiButton: Components['MuiButton'] = {
       },
       style: {
         color: palette.primary['600'],
-        fontSize: '.875rem',
         fontWeight: 500,
         height: '2.375rem',
-        lineHeight: '1.125rem',
-        padding: '.6875rem .25rem',
+
+        '.MuiButton-startIcon': {
+          marginRight: '.375rem',
+        },
 
         '&.Mui-disabled': {
           opacity: 0.4,
@@ -23,14 +24,73 @@ const MuiButton: Components['MuiButton'] = {
         '&:not(.Mui-disabled)': {
           '&:hover': {
             color: palette.primary['700'],
+
+            'svg path': {
+              fill: palette.primary['700'],
+            },
           },
 
           '&:active': {
             color: palette.primary['900'],
+
+            'svg path': {
+              fill: palette.primary['900'],
+            },
           },
 
-          '&:focus': {
-            color: palette.primary['600'],
+          '&:focus:not(:active)::before, &.MuiButton-outlined:focus:not(:active)::before':
+            {
+              content: '""',
+              position: 'absolute',
+              background: 'transparent',
+              width: 'calc(100% + 6px)',
+              height: 'calc(100% + 6px)',
+              borderRadius: '.375rem',
+              border: '2px solid',
+              borderColor: grey['950'],
+              zIndex: 1,
+            },
+        },
+      },
+    },
+    {
+      props: {
+        color: 'grey',
+        variant: 'link',
+      },
+      style: {
+        fontSize: '.875rem',
+        lineHeight: '1rem',
+        padding: '.6875rem .25rem',
+
+        '&:not(.Mui-disabled)': {
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+
+          '&:active': {
+            backgroundColor: 'transparent',
+          },
+        },
+      },
+    },
+    {
+      props: {
+        color: 'primary',
+        variant: 'link',
+      },
+      style: {
+        fontSize: '.9375rem',
+        lineHeight: '1.125rem',
+        padding: '.625rem .625rem',
+
+        '&:not(.Mui-disabled)': {
+          '&:hover': {
+            backgroundColor: palette.primary['100'],
+          },
+
+          '&:active': {
+            backgroundColor: palette.primary['200'],
           },
         },
       },
