@@ -1,4 +1,4 @@
-import { Components } from '@mui/material'
+import { Components, createTheme } from '@mui/material'
 
 import CheckCircleFillIcon from '@/assets/icons/CheckCircleFillIcon'
 import CloseIcon from '@/assets/icons/CloseIcon'
@@ -8,6 +8,8 @@ import WarningDiamondFillIcon from '@/assets/icons/WarningDiamondFillIcon'
 import WarningFillIcon from '@/assets/icons/WarningFillIcon'
 
 import palette from '../palette'
+
+const { breakpoints } = createTheme()
 
 const MuiAlert: Components['MuiAlert'] = {
   defaultProps: {
@@ -27,19 +29,39 @@ const MuiAlert: Components['MuiAlert'] = {
   styleOverrides: {
     root: {
       marginBottom: '1.5rem',
-      paddingTop: '.75rem',
-      paddingBottom: '.75rem',
+      padding: '.75rem .75rem .75rem .5rem',
+
+      '.MuiAlert-icon svg': {
+        height: '1.125rem',
+        width: '1.125rem',
+      },
+
+      [breakpoints.up('md')]: {
+        padding: '.75rem 1rem',
+
+        '.MuiAlert-icon svg': {
+          height: '1.5rem',
+          width: '1.5rem',
+        },
+      },
     },
 
     icon: {
-      alignSelf: 'center',
+      alignSelf: 'flex-start',
+      marginRight: '.5rem',
       paddingBottom: 0,
       paddingTop: 0,
+
+      [breakpoints.up('md')]: {
+        alignSelf: 'center',
+        marginRight: '.75rem',
+      },
     },
 
     message: {
-      lineHeight: '1.125rem',
-      padding: '.1875rem 0',
+      a: {
+        color: 'inherit',
+      },
     },
 
     standard: {
@@ -47,11 +69,28 @@ const MuiAlert: Components['MuiAlert'] = {
       borderLeftStyle: 'solid',
       borderLeftWidth: 3,
       fontWeight: 300,
-      fontSize: '1.0625rem',
-      padding: '1rem 1.875rem 1rem 1.5rem',
+      fontSize: '.9375rem',
+      lineHeight: '1.125rem',
+      padding: '1rem 1.5rem 1rem 1.25rem',
 
       '.MuiAlert-icon': {
         display: 'none',
+      },
+
+      '.MuiAlert-message': {
+        fontWeight: 300,
+        padding: 0,
+
+        a: {
+          color: 'inherit',
+          fontWeight: 500,
+        },
+      },
+
+      [breakpoints.up('md')]: {
+        fontSize: '1.0625rem',
+        lineHeight: '1.5rem',
+        padding: '1rem 1.875rem 1rem 1.5rem',
       },
     },
     standardGrey: {
@@ -80,7 +119,26 @@ const MuiAlert: Components['MuiAlert'] = {
     },
 
     filled: {
-      fontWeight: 600,
+      fontSize: '.8125rem',
+      fontWeight: 400,
+
+      '.MuiAlert-message': {
+        lineHeight: '1rem',
+        padding: '.125rem 0',
+
+        a: {
+          fontWeight: 600,
+        },
+      },
+
+      [breakpoints.up('md')]: {
+        fontSize: '.875rem',
+
+        '.MuiAlert-message': {
+          lineHeight: '1.25rem',
+          padding: '.125rem 0',
+        },
+      },
     },
     filledGrey: {
       backgroundColor: palette.grey['600'],
@@ -104,7 +162,26 @@ const MuiAlert: Components['MuiAlert'] = {
     },
 
     outlined: {
-      fontWeight: 400,
+      fontSize: '.8125rem',
+      fontWeight: 600,
+
+      '.MuiAlert-message': {
+        lineHeight: '1rem',
+        padding: '.125rem 0',
+
+        a: {
+          fontWeight: 600,
+        },
+      },
+
+      [breakpoints.up('md')]: {
+        fontSize: '.875rem',
+
+        '.MuiAlert-message': {
+          lineHeight: '1.25rem',
+          padding: '.125rem 0',
+        },
+      },
     },
     outlinedGrey: {
       backgroundColor: palette.grey['50'],
