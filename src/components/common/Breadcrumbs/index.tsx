@@ -9,10 +9,7 @@ type Props = {
 
 function RcSesBreadcrumbs({ path }: Props) {
   return (
-    <MuiBreadcrumbs aria-label='breadcrumb'>
-      <Link underline='hover' color='inherit' href='/'>
-        Pagrindinis
-      </Link>
+    <MuiBreadcrumbs>
       {path.map((step) => (
         <Link key={step.path} underline='hover' color='inherit' href={step.path}>
           {step.label}
