@@ -29,21 +29,27 @@ import MuiPopover from '@/theme/light/MuiPopover'
 import MuiRadio from '@/theme/light/MuiRadio'
 import MuiSelect from '@/theme/light/MuiSelect'
 import MuiStepper from '@/theme/light/MuiStepper'
+import MuiTab from '@/theme/light/MuiTab'
 import MuiTable from '@/theme/light/MuiTable'
 import MuiTableCell from '@/theme/light/MuiTableCell'
+import MuiTabs from '@/theme/light/MuiTabs'
 import MuiTextField from '@/theme/light/MuiTextField'
 import MuiTypography from '@/theme/light/MuiTypography'
 import themePalette from '@/theme/light/themePalette'
 
-declare module '@mui/material' {
+declare module '@mui/material/styles' {
   interface Palette {
+    dark: Palette['grey']
     grey: Palette['grey']
   }
 
   interface PaletteOptions {
+    dark?: PaletteOptions['grey']
     grey?: PaletteOptions['grey']
   }
+}
 
+declare module '@mui/material' {
   interface AlertPropsColorOverrides {
     grey: true
   }
@@ -60,6 +66,7 @@ declare module '@mui/material' {
 
   interface ButtonPropsColorOverrides {
     grey: any
+    dark: any
   }
 
   interface RadioPropsColorOverrides {
@@ -100,6 +107,8 @@ const theme = createTheme(themePalette, ltLT, {
     MuiRadio,
     MuiSelect,
     MuiStepper,
+    MuiTab,
+    MuiTabs,
     MuiTable,
     MuiTableCell,
     MuiTextField,

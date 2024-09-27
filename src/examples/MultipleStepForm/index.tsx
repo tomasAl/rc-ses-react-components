@@ -49,6 +49,7 @@ function MultipleStepForm() {
       <ServiceHeader
         breadcrumbsProps={{
           path: [
+            { label: 'Pagrindinis', path: '/' },
             { label: 'Formos su vedliu pavyzdys', path: '/sample-form-multiple-steps' },
           ],
         }}

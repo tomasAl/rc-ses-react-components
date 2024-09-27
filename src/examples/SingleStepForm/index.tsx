@@ -63,6 +63,7 @@ function SingleStepForm() {
       <ServiceHeader
         breadcrumbsProps={{
           path: [
+            { label: 'Pagrindinis', path: '/' },
             { label: 'Vieno žingsnio formos pavyzdys', path: '/sample-form-single-step' },
           ],
         }}

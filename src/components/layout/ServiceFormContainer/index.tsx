@@ -17,7 +17,7 @@ type Props = {
 function ServiceFormContainer({
   accordionController,
   children,
-  showAccordionCollapseControls = false,
+  showAccordionCollapseControls = true,
   showProgressStepper = false,
 }: Props) {
   const { state } = accordionController
