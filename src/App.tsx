@@ -1,4 +1,4 @@
-import { Button, Stack, Typography } from '@mui/material'
+import { Button, Stack } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 import ServiceHeader from './components/layout/ServiceHeader'
@@ -19,24 +19,23 @@ export default function App() {
   return (
     <ServicePage>
       <ServiceHeader
-        breadcrumbsProps={{ path: [] }}
+        breadcrumbsProps={{ path: [{ label: 'Pagrindinis', path: '/' }] }}
         title='Formų bei komponentų pavyzdžiai'
       >
-        <Typography variant='body1'>
-          <Stack direction='row' spacing={2}>
-            {routes?.map((route) => (
-              <Button
-                component={Link}
-                to={route.routeTo}
-                color='primary'
-                variant='contained'
-                size='small'
-              >
-                {route.title}
-              </Button>
-            ))}
-          </Stack>
-        </Typography>
+        <Stack direction='row' spacing={2}>
+          {routes?.map((route) => (
+            <Button
+              key={route.routeTo}
+              component={Link}
+              to={route.routeTo}
+              color='primary'
+              variant='contained'
+              size='small'
+            >
+              {route.title}
+            </Button>
+          ))}
+        </Stack>
       </ServiceHeader>
     </ServicePage>
   )
