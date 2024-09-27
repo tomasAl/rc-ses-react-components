@@ -22,7 +22,12 @@ const MuiButton: Components['MuiButton'] = {
         },
 
         '&:not(.Mui-disabled)': {
+          'svg path': {
+            fill: palette.primary['600'],
+          },
+
           '&:hover': {
+            backgroundColor: 'transparent',
             color: palette.primary['700'],
 
             'svg path': {
@@ -30,7 +35,8 @@ const MuiButton: Components['MuiButton'] = {
             },
           },
 
-          '&:active': {
+          '&:active, &:focus': {
+            backgroundColor: 'transparent',
             color: palette.primary['900'],
 
             'svg path': {
@@ -50,6 +56,10 @@ const MuiButton: Components['MuiButton'] = {
               borderColor: grey['950'],
               zIndex: 1,
             },
+        },
+
+        '.MuiButton-endIcon': {
+          marginLeft: '.25rem',
         },
       },
     },
@@ -76,21 +86,21 @@ const MuiButton: Components['MuiButton'] = {
     },
     {
       props: {
-        color: 'primary',
+        color: 'dark',
         variant: 'link',
       },
       style: {
-        fontSize: '.9375rem',
-        lineHeight: '1.125rem',
-        padding: '.625rem .625rem',
+        color: palette.grey['700'],
+        textDecoration: 'underline',
 
         '&:not(.Mui-disabled)': {
           '&:hover': {
-            backgroundColor: palette.primary['100'],
+            // backgroundColor: 'transparent',
+            // color: palette.grey['700'],
           },
 
           '&:active': {
-            backgroundColor: palette.primary['200'],
+            // backgroundColor: 'transparent',
           },
         },
       },
@@ -166,6 +176,22 @@ const MuiButton: Components['MuiButton'] = {
         },
         '&:active': {
           backgroundColor: grey['400'],
+        },
+      },
+
+      '&.MuiButton-colorDark': {
+        color: 'white',
+        backgroundColor: grey['900'],
+
+        '&:hover': {
+          backgroundColor: grey['800'],
+        },
+        '&:active': {
+          backgroundColor: grey['700'],
+        },
+        '&.Mui-disabled': {
+          backgroundColor: `${grey['100']} !important`,
+          color: `${grey['500']} !important`,
         },
       },
 

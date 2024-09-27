@@ -38,9 +38,7 @@ const MuiFormGroup: Components['MuiFormGroup'] = {
 
             '&:not(.Mui-disabled)': {
               '&:hover': {
-                // color: palette.primary['700'],
                 borderColor: palette.primary['500'],
-                boxShadow: `0px 0px 0px 4px rgba(${decomposeColor(palette.primary['500']).values}, .2)`,
               },
 
               '&.Mui-checked': {

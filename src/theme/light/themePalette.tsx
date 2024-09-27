@@ -13,6 +13,7 @@ const themePalette = createTheme({
     warning,
     error,
     grey,
+    dark: grey,
   },
   typography: {
     fontFamily: 'Public sans, sans-serif, Arial',

@@ -6,10 +6,30 @@ const MuiBreadcrumbs: Components['MuiBreadcrumbs'] = {
   defaultProps: {},
   styleOverrides: {
     root: {
-      fontSize: '0.6875rem',
-      color: Colors.grey['600'],
-      '& .MuiBreadcrumbs-li:last-child': {
-        color: Colors.grey['900'],
+      fontSize: '.6875rem',
+    },
+    li: {
+      a: {
+        color: Colors.grey['600'],
+        textDecoration: 'none',
+      },
+
+      '&:last-child': {
+        a: {
+          color: Colors.grey['900'],
+        },
+      },
+
+      '&:hover': {
+        a: {
+          color: Colors.primary['600'],
+        },
+      },
+
+      '&:active, &:focus': {
+        a: {
+          color: Colors.primary['700'],
+        },
       },
     },
   },
