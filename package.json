@@ -31,7 +31,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:lib": "npm ci && tsc --p ./tsconfig.lib.json && vite build --config vite.config.lib.ts",
+    "build:lib": "tsc --p ./tsconfig.lib.json && vite build --config vite.config.lib.ts",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
@@ -42,7 +42,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomasAl/rc-ses-react-components"
+    "url": "https://github.com/registrucentras/rc-ses-react-components"
+  },
+  "publishConfig": {
+    "@registrucentras:registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
